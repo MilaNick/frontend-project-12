@@ -1,15 +1,59 @@
-.shadow-sm {
+@import '../../assets/styles/variables';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+
+  background: $white;
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    padding: 3rem;
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    padding: 1rem;
+
+  }
+
+  &__wrap {
+    width: 60%;
+  }
+
+  &__title {
+
+  }
+
+  &__form {
+    input,  button {
+      width: 95%;
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      line-height: 2.8rem;
+      border-radius: .3rem;
+      border: 1px solid $light-blue-77;
+    }
+    button {
+      border: none;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    padding: 3rem;
+    background: $bg;
+    text-align: center;
+  }
+}
+
+
+
+.shadow {
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 }
 
-.card {
-  word-wrap: break-word;
-  background-clip: initial;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: 0.25rem;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  position: relative;
-}

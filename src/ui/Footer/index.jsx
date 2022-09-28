@@ -1,8 +1,8 @@
 import './index.scss';
 
 const Footer = () => {
-  return(
-    <>FOOTER</>
+  return (
+    <footer className="footer">FOOTER</footer>
   )
 }
 

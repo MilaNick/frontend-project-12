@@ -1,5 +1,4 @@
 import './index.scss';
-import 'bootstrap';
 
 const Login = () => {
   return (

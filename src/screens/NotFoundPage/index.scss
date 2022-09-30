@@ -1,0 +1,18 @@
+@import '../../assets/styles/variables';
+
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    align-self: center;
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  &__pic {
+    width: 35%;
+    align-self: center;
+  }
+}

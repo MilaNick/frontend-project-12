@@ -1,0 +1,29 @@
+@import '../../assets/styles/variables';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  color: $baby-blue;
+  margin-left: 1rem;
+}
+
+button {
+  padding: 1.2rem;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  color: $font-base;
+  border-radius: .3rem;
+  background: $grey-blue;
+  outline: none;
+  &:hover {
+    background: $white;
+    border: none;
+  }
+}

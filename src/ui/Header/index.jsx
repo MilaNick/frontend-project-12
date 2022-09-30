@@ -1,20 +1,23 @@
-import {NavLink} from "react-router-dom";
+import Nav from "ui/Nav";
 
 import './index.scss';
+import {Link} from "react-router-dom";
 
 const links = [
-  {link: '/', label: 'Главная'},
-  {link: '/login', label: 'Регистрация/ Вход'},
-  {link: '*', label: '404'},
+  {href: '/', label: 'Главная'},
+  {href: '/login', label: 'Вход'},
+  {href: '/signup', label: 'Регистрация'},
 ];
 
 const Header = () => {
   return (
-    <>
-      <nav>
-        {links.map(({link, label}) => <NavLink key={link} to={link} className="nav__item">{label}</NavLink>)}
-      </nav>
-    </>
+    <header className="header">
+      <div className="logo">
+        <Link to="/" className="logo__one">Mila Chat</Link>
+      </div>
+      <Nav links={links} />
+      <button>Выйти</button>
+    </header>
   );
 }
 

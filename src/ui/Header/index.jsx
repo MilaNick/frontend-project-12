@@ -1,7 +1,8 @@
+import {Link} from "react-router-dom";
+
 import Nav from "ui/Nav";
 
 import './index.scss';
-import {Link} from "react-router-dom";
 
 const links = [
   {href: '/', label: 'Главная'},

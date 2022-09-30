@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
-import SignupForm from "../../components/SignupForm";
-import Chair from "../../assets/images/chair.jpg";
+import SignupForm from "components/SignupForm";
+import Chair from "assets/images/chair.jpg";
 
 import './index.scss';
 

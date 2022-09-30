@@ -1,6 +1,6 @@
-import './index.scss';
-
 import Skull from 'assets/images/skull.jpg';
+
+import './index.scss';
 
 const NotFoundPage = () => {
   return(

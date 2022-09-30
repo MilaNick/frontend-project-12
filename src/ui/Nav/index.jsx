@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
 
 import './index.scss';
@@ -10,14 +9,5 @@ const Nav = ({ links }) => {
     </nav>
   )
 }
-
-Nav.propTypes = {
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      href: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default Nav;

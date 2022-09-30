@@ -33,21 +33,6 @@
   }
 
   &__form {
-    input {
-      width: 100%;
-      padding: 1.6rem;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      line-height: 2.8rem;
-      border: none;
-      border-bottom: 1px solid $light-blue-77;
-      &:focus {
-        outline: none;
-      }
-      &.input-error {
-        border-bottom: 1px solid $salmon-pink;
-      }
-    }
     button {
       width: 100%;
       padding: 1.6rem;

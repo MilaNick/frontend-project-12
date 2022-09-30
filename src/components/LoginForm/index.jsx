@@ -14,7 +14,6 @@ const LoginForm = () => {
     validationSchema,
     onSubmit: values => console.log(JSON.stringify(values, null, 2)),
   })
-  console.log(formik)
   return (
     <form className="card__form" onSubmit={formik.handleSubmit}>
       <input name="name"

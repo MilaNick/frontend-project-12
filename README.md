@@ -18,7 +18,7 @@
 [axios](https://github.com/axios/axios)   
 [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
   
-####Задачи  
+#### Задачи  
 - Реализуйте отправку формы с данными пользователя на сервер.
 - Интерфейс обработки запроса определён в файле routes.js серверной части. 
 - Полученный от сервера токен сохраняйте в localStorage. 

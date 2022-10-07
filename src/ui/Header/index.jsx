@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import Nav from "ui/Nav";
 
 import './index.scss';
+import {useEffect} from "react";
+import axios from "axios";
 
 const links = [
   {href: '/', label: 'Главная'},
@@ -11,6 +13,7 @@ const links = [
 ];
 
 const Header = () => {
+
   return (
     <header className="header">
       <div className="logo">

@@ -11,7 +11,9 @@ html {
 }
 
 body {
-  background: $bg-primary;
+  background-image: url("../images/bg_3.jpg");
+  background-position: center;
+  background-size: cover;
   margin: 0 auto;
   font-family: 'ralewaymedium', sans-serif;
   font-weight: $medium;

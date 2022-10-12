@@ -1,4 +1,5 @@
 import Nav from "ui/Nav";
+import Button from "ui/Button";
 
 import './index.scss';
 
@@ -14,7 +15,7 @@ const Footer = () => {
       <Nav links={links} />
       <div>created by <a href="https://github.com/MilaNick/frontend-project-12"
                                                  target="_blank" rel="noreferrer">MilaNick</a></div>
-      <button>Выйти</button>
+      <Button size='sm' top='sm'>Выйти</Button>
     </footer>
   )
 }

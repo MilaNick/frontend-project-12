@@ -3,7 +3,7 @@
 .input {
   width: 100%;
   padding: 1.6rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   font-size: 2rem;
   line-height: 2.8rem;
   border: none;
@@ -11,7 +11,7 @@
   &:focus {
     outline: none;
   }
-  &-error {
+  &--error {
     border-bottom: 1px solid $salmon-pink;
   }
 }

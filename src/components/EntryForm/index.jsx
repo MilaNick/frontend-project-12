@@ -2,9 +2,11 @@ import {useFormik} from "formik";
 import * as Yup from 'yup';
 
 import Input from "ui/Input";
+import Message from "../Message";
+import Button from "../../ui/Button";
 
 const EntryForm = (props) => {
-  const {config, onSubmit, buttonText} = props
+  const {config, onSubmit, buttonText, errorMessage = ''} = props;
 
   const validationSchema = Yup.object().shape(
     config.reduce((acc, field) => ({ ...acc, [field.name]: field.schema}), {})
@@ -26,7 +28,8 @@ const EntryForm = (props) => {
           {...formik.getFieldProps(name)}
         />
       ))}
-      <button type="submit" className="btn">{buttonText}</button>
+      <Button type="submit" fluid size='lg' top='lg'>{buttonText}</Button>
+       {errorMessage && <Message type='error'>{errorMessage}</Message>}
     </form>
   )
 }

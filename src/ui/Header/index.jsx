@@ -1,10 +1,9 @@
 import {Link} from "react-router-dom";
 
 import Nav from "ui/Nav";
+import Button from "ui/Button";
 
 import './index.scss';
-import {useEffect} from "react";
-import axios from "axios";
 
 const links = [
   {href: '/', label: 'Главная'},
@@ -20,7 +19,7 @@ const Header = () => {
         <Link to="/" className="logo__one">Mila🚀Chat</Link>
       </div>
       <Nav links={links} />
-      <button>Выйти</button>
+      <Button size='sm' top='sm'>Выйти</Button>
     </header>
   );
 }

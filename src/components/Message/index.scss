@@ -1,0 +1,14 @@
+@import '../../assets/styles/variables';
+
+.message {
+  margin-top: 1rem;
+  &__error {
+    color: $salmon-pink;
+  }
+  &__success {
+    color: $baby-blue
+  }
+  &__info {
+    color: $font-base
+  }
+}

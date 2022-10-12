@@ -1,4 +1,5 @@
 import './index.scss';
+import Message from "components/Message";
 
 const Input = (props) => {
   const {type = 'text', className = '', error = '', ...nativeInputProps} = props;
@@ -6,10 +7,10 @@ const Input = (props) => {
     <>
       <input
         type={type}
-        className={['input', className, error ? 'input-error' : ''].filter(Boolean).join(' ')}
+        className={['input', className, error ? 'input--error' : ''].filter(Boolean).join(' ')}
         {...nativeInputProps}
       />
-      {error && <div className='error-message'>{error}</div>}
+      {error && <Message type='error'>{error}</Message>}
     </>
   )
 }

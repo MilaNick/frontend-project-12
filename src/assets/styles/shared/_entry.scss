@@ -32,23 +32,6 @@
     padding-left: 3rem;
   }
 
-  &__form {
-    button {
-      width: 100%;
-      padding: 1.6rem;
-      font-size: 2rem;
-      line-height: 2.8rem;
-      border-radius: .3rem;
-      border: none;
-      color: $font-base;
-      background: $grey-blue;
-      outline: none;
-      &:hover {
-        outline: 1px solid $light-blue-77;
-      }
-    }
-  }
-
   &__footer {
     width: 100%;
     padding: 1rem;

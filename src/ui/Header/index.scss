@@ -13,17 +13,3 @@
   color: $baby-blue;
   margin-left: 1rem;
 }
-
-button {
-  padding: .8rem;
-  font-size: 2rem;
-  line-height: 2.8rem;
-  color: $dark-grey;
-  border-radius: .3rem;
-  background: $grey-blue;
-  outline: none;
-  &:hover {
-    background: $white;
-    border: none;
-  }
-}

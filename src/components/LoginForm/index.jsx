@@ -1,14 +1,14 @@
 import * as Yup from 'yup';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 import EntryForm from "components/EntryForm";
-// import {useEffect} from "react";
-
-
-// import axios from "axios";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../App";
 
 const LoginForm = () => {
+  const [errorMessage, setErrorMessage] = useState('');
+  const { setAuth } = useContext(AuthContext);
+
   const config = [
     {
       name: 'name',
@@ -22,24 +22,25 @@ const LoginForm = () => {
       schema: Yup.string().required('Обязательное поле')
     }
   ]
-  const navigate = useNavigate();
 
   return (
     <EntryForm
       config={config}
       onSubmit={({name, password}) => {
+        setErrorMessage('');
         axios.post('/api/v1/login', {username: name, password: password}).then((response) => {
-          console.log(response.data)
-          localStorage.setItem('token', response.data.token);
-          console.log('отлично')
           setTimeout(() => {
-            navigate("/");
-          }, 1500)
+            const { token ,username} = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('username', username);
+            setAuth({token, username})
+          }, 500)
         }).catch((error) => {
-          console.log('ошибка', error)
+          setErrorMessage(error.message)
         });
       }}
       buttonText='Войти'
+      errorMessage={errorMessage}
     />
   )
 }

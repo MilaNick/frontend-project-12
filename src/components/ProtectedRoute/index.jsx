@@ -3,7 +3,7 @@ import {useContext} from "react";
 import {AuthContext} from "../../App";
 
 const ProtectedRoute = ({ children, accessLevel }) => {
-  const { auth } = useContext(AuthContext);
+  const [auth] = useContext(AuthContext);
 
   if (accessLevel === 'auth' && !auth) {
     return <Navigate to="/login" />;

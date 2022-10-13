@@ -39,7 +39,7 @@ function App() {
     }
   }, [])
   return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
+    <AuthContext.Provider value={[ auth, setAuth ]}>
       <Routes>
         <Route path='/' element={<Layout />}>
           {screens.map(({path, component: Component, accessLevel}) => {

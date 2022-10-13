@@ -7,7 +7,7 @@ import {AuthContext} from "../../App";
 
 const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const { setAuth } = useContext(AuthContext);
+  const [, setAuth] = useContext(AuthContext);
 
   const config = [
     {

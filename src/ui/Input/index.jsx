@@ -1,5 +1,6 @@
-import './index.scss';
 import Message from "components/Message";
+
+import './index.scss';
 
 const Input = (props) => {
   const {type = 'text', className = '', error = '', ...nativeInputProps} = props;

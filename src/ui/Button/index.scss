@@ -43,4 +43,10 @@
     border: none;
     outline: 1px solid $light-blue-77;
   }
+
+  &--absolute{
+    position: absolute;
+    right: 3%;
+    top: 30%;
+  }
 }

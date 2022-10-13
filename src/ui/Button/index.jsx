@@ -4,13 +4,14 @@ import './index.scss';
 
 import {Link} from "react-router-dom";
 
-const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, top}) => {
+const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, top, absolute = false}) => {
   const classes = cn({
     btn: true,
     [className]: Boolean(className),
     [`btn--size-${size}`]: Boolean(size),
     [`btn--top-${top}`]: Boolean(top),
     'btn--fluid': fluid,
+    'btn--absolute': absolute,
   })
 
   if (href) {

@@ -1,21 +1,17 @@
-import Nav from "ui/Nav";
 import Button from "ui/Button";
+import {useContext} from "react";
+
+import {AuthContext} from "../../App";
 
 import './index.scss';
 
-const links = [
-  {href: '/', label: 'Главная'},
-  {href: '/login', label: 'Вход'},
-  {href: '/signup', label: 'Регистрация'}
-];
-
 const Footer = () => {
+  const { logout} = useContext(AuthContext);
   return (
     <footer className="footer">
-      <Nav links={links} />
-      <div>created by <a href="https://github.com/MilaNick/frontend-project-12"
+      <div className="created-by">created by <a href="https://github.com/MilaNick/frontend-project-12"
                                                  target="_blank" rel="noreferrer">MilaNick</a></div>
-      <Button size='sm' top='sm'>Выйти</Button>
+      <Button onClick={logout} size='sm' top='sm'>Выйти</Button>
     </footer>
   )
 }

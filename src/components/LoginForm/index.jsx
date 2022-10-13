@@ -3,11 +3,11 @@ import axios from "axios";
 
 import EntryForm from "components/EntryForm";
 import {useContext, useState} from "react";
-import {AuthContext} from "../../App";
+import {AuthContext} from "App";
 
 const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
-  const [, setAuth] = useContext(AuthContext);
+  const {setAuth} = useContext(AuthContext);
 
   const config = [
     {

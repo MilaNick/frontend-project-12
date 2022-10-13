@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
 import {useContext} from "react";
-import {AuthContext} from "../../App";
+import {AuthContext} from "App";
 
 const ProtectedRoute = ({ children, accessLevel }) => {
-  const [auth] = useContext(AuthContext);
+  const {auth} = useContext(AuthContext);
 
   if (accessLevel === 'auth' && !auth) {
     return <Navigate to="/login" />;

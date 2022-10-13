@@ -21,6 +21,10 @@ body {
   letter-spacing: 0.2rem;
 }
 
+.root {
+  height: 100%;
+}
+
 a {
   display: inline-block;
   position: relative;
@@ -63,8 +67,25 @@ div {
   box-shadow: 0 2px 2px rgba(0,0,0,.075);
 }
 
-.error-message {
-  color: $salmon-pink;
+/* W3C standard
+   сейчас только для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $light-blue $grey;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: $grey;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $light-blue;
+  border-radius: 5px;
+  border: 3px solid $grey;
 }
 
 //---------------***---------------
@@ -72,6 +93,5 @@ div {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 100vh;
   margin: 0 auto;
 }

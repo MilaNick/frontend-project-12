@@ -1,14 +1,14 @@
 import {createContext, useEffect, useState} from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 
 import Main from 'screens/Main';
 import Layout from 'ui/Layout';
 import Login from 'screens/Login';
 import SignUp from "screens/SignUp";
 import NotFoundPage from 'screens/NotFoundPage';
+import ProtectedRoute from "components/ProtectedRoute";
 
 import './App.scss';
-import ProtectedRoute from "./components/ProtectedRoute";
 
 const screens = [
   {path: '/', component: Main, accessLevel: 'auth'},
@@ -18,17 +18,7 @@ const screens = [
 ]
 
 export const AuthContext = createContext(null);
-// const location = useLocation();
-// const navigate = useNavigate();
-// useEffect(()=> {
-//   console.log(location.pathname)
-//   if(location.pathname === '/login' || location.pathname === '/signup') {
-//     return;
-//   }
-//   if(localStorage.getItem('token') === null) {
-//     navigate("/login");
-//   }
-// }, [location.pathname])
+
 function App() {
   const [auth, setAuth] = useState(null);
   useEffect(() => {
@@ -38,8 +28,14 @@ function App() {
       setAuth({ token, username });
     }
   }, [])
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear();
+    setAuth(null);
+    navigate('/login');
+  }
   return (
-    <AuthContext.Provider value={[ auth, setAuth ]}>
+    <AuthContext.Provider value={{ auth, setAuth, logout }}>
       <Routes>
         <Route path='/' element={<Layout />}>
           {screens.map(({path, component: Component, accessLevel}) => {

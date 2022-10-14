@@ -1,13 +1,13 @@
 import {createSlice} from  '@reduxjs/toolkit';
 
 const messagesSlice = createSlice({
-  name: 'channel',
+  name: 'messages',
   initialState: {
     messages: [],
   },
   reducers: {
-    setMessages(state, action) {
-      state.messages.map(message => message === action.payload)
+    setMessages(state, {payload}) {
+      state.message = payload;
     },
     addMessage(state, action) {
       state.messages.push({
@@ -26,3 +26,5 @@ const messagesSlice = createSlice({
 export const { actions, reducer } = messagesSlice;
 export const {setMessages, addMessage, removeMessage} = actions;
 export default  reducer;
+
+// TODO проверить, дописать, неверно

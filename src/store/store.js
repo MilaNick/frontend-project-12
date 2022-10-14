@@ -5,8 +5,10 @@ import messagesReducer from 'components/Messages/messagesSlice.js';
 
 export default configureStore({
   reducer: {
-    channels: channelsReducer,
-    messages: messagesReducer,
+    channelsReducer,
+    messagesReducer,
   },
+  // eslint-disable-next-line no-undef
+  // TODO ??
   devTools: process.env.NODE_ENV !== 'production',
 });

@@ -1,4 +1,5 @@
 import {useContext, useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
 import axios from "axios";
 
 import {AuthContext} from "App";
@@ -6,6 +7,7 @@ import Channels from "components/Channels";
 import Messages from "components/Messages";
 
 import './index.scss';
+import {setChannels} from "../../components/Channels/channelsSlice";
 
 const messages = [
   {
@@ -60,24 +62,30 @@ const messages = [
 
 const Main = () => {
   const {auth} = useContext(AuthContext);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null); // TODO удалить
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    if (auth) {
-      axios.get('/api/v1/data', {
-        headers: {
-          Authorization: `Bearer ${auth.token}`
+        if (auth) {
+          axios.get('/api/v1/data', {
+            headers: {
+              Authorization: `Bearer ${auth.token}`
+            }
+          }).then((response) => {
+            const channelsAction = setChannels(response.data.channels); // { type: 'xxx', payload: [] }
+            console.log('channelsAction>>>', channelsAction);
+            dispatch(channelsAction);
+            setData(response.data)
+          });
         }
-      }).then((response) => {
-        setData(response.data)
-      });
-    }
+
   }, [])
 
   return (
     <div className="chat-container">
-      {data && (
+      {data && ( // TODO ??
         <div className="main__wrap shadow">
-          <Channels channels={data.channels}/>
+          <Channels />
           <Messages messages={messages} channelName='general' countMessages='1 сообщение'/>
         </div>
       )}

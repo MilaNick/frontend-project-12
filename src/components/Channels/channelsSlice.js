@@ -1,13 +1,13 @@
-import {createSlice} from  '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const channelsSlice = createSlice({
-  name: 'channel',
+  name: 'channels1',
   initialState: {
     channels: [],
   },
   reducers: {
-    setChannels(state, action) {
-      state.channels.map(channel => channel === action.payload)
+    setChannels(state, {payload}) { // { type: 'xxx', payload: [] }
+      state.channels = payload;
     },
     addChannel(state, action) {
       state.channels.push({
@@ -16,16 +16,17 @@ const channelsSlice = createSlice({
         removable: action.payload.removable,
       })
     },
-    removeChannel(state, action) {
-      state.channels.filter(channel => channel.id !== action.payload.id)
+    removeChannel(state, { payload }) {
+      state.channels = state.channels.filter(({id}) => id !== payload)
       // state.messages.filter(id => action.payload.channelId === id)
     },
-    renameChannel(state, action) {
-      state.channels.map(channel => channel.name === action.payload.name)
-    },
+    // renameChannel(state, action) {
+    //   state.channels.map(channel => channel.name === action.payload.name)
+    // },
   }
 })
 
-export const { actions, reducer } = channelsSlice;
-export const {setChannels, addChannel, renameChannel, removeChannel} = actions;
-export default  reducer;
+export const {actions, reducer} = channelsSlice;
+export const {setChannels, addChannel, removeChannel} = actions;
+export default reducer;
+// TODO проверить, дописать, неверно

@@ -1,4 +1,4 @@
-import Message from "components/Message";
+import Report from "components/Report";
 
 import './index.scss';
 
@@ -11,7 +11,7 @@ const Input = (props) => {
         className={['input', className, error ? 'input--error' : ''].filter(Boolean).join(' ')}
         {...nativeInputProps}
       />
-      {error && <Message type='error'>{error}</Message>}
+      {error && <Report type='error'>{error}</Report>}
     </>
   )
 }

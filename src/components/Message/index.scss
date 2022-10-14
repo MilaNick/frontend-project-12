@@ -1,14 +1,23 @@
 @import '../../assets/styles/variables';
 
 .message {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  padding: 1rem;
   margin-top: 1rem;
-  &__error {
-    color: $salmon-pink;
+  background: $white;
+  border-top-right-radius: 2rem;
+
+  &__username {
+    margin-right: 1rem;
+    font-weight: $black;
   }
-  &__success {
-    color: $baby-blue
+  &--right {
+    margin-left: auto;
   }
-  &__info {
-    color: $font-base
+  &--bg-color{
+    background: $light-blue-10;
   }
 }

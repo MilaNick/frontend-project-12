@@ -1,0 +1,16 @@
+@import '../../assets/styles/variables';
+
+.main-channels {
+  width: 20%;
+  padding: 3rem;
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__names {
+    margin-top: 2rem;
+  }
+}

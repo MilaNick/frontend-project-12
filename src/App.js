@@ -10,6 +10,7 @@ import ProtectedRoute from "components/ProtectedRoute";
 
 import './App.scss';
 
+
 const screens = [
   {path: '/', component: Main, accessLevel: 'auth'},
   {path: '/login', component: Login, accessLevel: 'no-auth'},

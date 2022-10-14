@@ -1,14 +1,13 @@
+import {useContext, useState} from "react";
 import * as Yup from 'yup';
 import axios from "axios";
 
-import EntryForm from "components/EntryForm";
-import {useContext, useState} from "react";
 import {AuthContext} from "App";
+import EntryForm from "components/EntryForm";
 
 const LoginForm = () => {
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorReport, setErrorReport] = useState('');
   const {setAuth} = useContext(AuthContext);
-
   const config = [
     {
       name: 'name',
@@ -27,7 +26,7 @@ const LoginForm = () => {
     <EntryForm
       config={config}
       onSubmit={({name, password}) => {
-        setErrorMessage('');
+        setErrorReport('');
         axios.post('/api/v1/login', {username: name, password: password}).then((response) => {
           setTimeout(() => {
             const { token ,username} = response.data;
@@ -36,11 +35,11 @@ const LoginForm = () => {
             setAuth({token, username})
           }, 500)
         }).catch((error) => {
-          setErrorMessage(error.message)
+          setErrorReport(error.message)
         });
       }}
       buttonText='Войти'
-      errorMessage={errorMessage}
+      errorReport={errorReport}
     />
   )
 }

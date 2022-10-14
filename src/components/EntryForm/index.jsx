@@ -2,7 +2,7 @@ import {useFormik} from "formik";
 import * as Yup from 'yup';
 
 import Input from "ui/Input";
-import Message from "../Message";
+import Report from "../Report";
 import Button from "../../ui/Button";
 
 const EntryForm = (props) => {
@@ -30,7 +30,7 @@ const EntryForm = (props) => {
           />
         ))}
         <Button type="submit" fluid size='lg' top='lg'>{buttonText}</Button>
-        {errorMessage && <Message type='error'>{errorMessage}</Message>}
+        {errorMessage && <Report type='error'>{errorMessage}</Report>}
       </form>
     </>
   )

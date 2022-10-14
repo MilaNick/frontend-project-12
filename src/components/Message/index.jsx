@@ -1,28 +1,24 @@
-// import i18n from 'i18next';
-// import resources from 'locales/index.js';
 import cn from 'classnames';
 
 import './index.scss';
 
-const Message = ({children, type}) => {
+const Message = ({id, body, username}) => {
+  const login = 'Mila';
+  const isAuthor = username === login;
   const classes = cn({
     message: true,
-    'message__error': type === 'error',
-  })
-
-  // const i18nextInstance = i18n.createInstance();
-  // i18nextInstance.init({
-  //   lng: 'ru',
-  //   debug: false,
-  //   resources,
-  // }).
-  //   then(() => {
-    return(
-      <div className={classes} >
-        {children}
-      </div>
-    )
-  // })
-}
+    'message--right': isAuthor,
+    'message--bg-color': isAuthor,
+  });
+  return (
+    <div key={id} className={classes}>
+      <div className="message__username">{username}</div>
+      <div className="message__text">{body}</div>
+    </div>
+  )
+};
 
 export default Message;
+
+// TODO если username === login, то надо добавить классы к message message--right message--bg-color
+// TODO куда вставить channelId

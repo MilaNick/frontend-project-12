@@ -1,6 +1,12 @@
+@import '../../assets/styles/variables';
 
-.main-channels__names li {
+.main-channels__names .item {
   margin-top: 1rem;
   font-size: 2rem;
   line-height: 2.8rem;
+}
+
+.item--active a {
+  font-weight: $black;
+  color: $salmon-pink;
 }

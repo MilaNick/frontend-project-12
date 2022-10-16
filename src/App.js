@@ -1,13 +1,13 @@
 import {createContext, useState} from "react";
 import {Route, Routes, useNavigate} from "react-router-dom";
 
-import Main from 'screens/Main';
 import Chats from "screens/Chats";
-import Layout from 'ui/Layout';
 import Login from 'screens/Login';
-import SignUp from "screens/SignUp";
+import Main from 'screens/Main';
 import NotFoundPage from 'screens/NotFoundPage';
 import ProtectedRoute from "components/ProtectedRoute";
+import SignUp from "screens/SignUp";
+import Layout from 'ui/Layout';
 
 import './App.scss';
 
@@ -27,7 +27,7 @@ function App() {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     if (token && username) {
-      return { token, username };
+      return {token, username};
     }
     return null;
   });
@@ -38,11 +38,11 @@ function App() {
     navigate('/login');
   }
   return (
-    <AuthContext.Provider value={{ auth, setAuth, logout }}>
+    <AuthContext.Provider value={{auth, setAuth, logout}}>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout/>}>
           {screens.map(({path, component: Component, accessLevel}) => {
-            return(
+            return (
               <Route
                 key={path}
                 path={path}
@@ -51,9 +51,9 @@ function App() {
                     <Component/>
                   </ProtectedRoute>
                 )}
-              />)}
+              />
             )
-          }
+          })}
         </Route>
       </Routes>
     </AuthContext.Provider>

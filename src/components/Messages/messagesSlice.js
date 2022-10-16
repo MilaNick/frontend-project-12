@@ -7,18 +7,19 @@ const messagesSlice = createSlice({
   },
   reducers: {
     setMessages(state, {payload}) {
-      state.message = payload;
+      state.messages = payload;
     },
-    addMessage(state, action) {
+    addMessage(state, {payload}) {
+      const { id, body, channelId, username } = payload;
       state.messages.push({
-        id: action.payload.id,
-        body: action.payload.body,
-        channelId: action.payload.channelId,
-        username: action.payload.username,
-      })
+        id,
+        body,
+        channelId,
+        username,
+      });
     },
     removeMessage(state, action) {
-      state.messages.filter(id => id !== action.payload.id)
+      state.messages = state.messages.filter(id => id !== action.payload.id)
     },
   }
 })

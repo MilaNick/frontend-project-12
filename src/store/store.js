@@ -9,6 +9,5 @@ export default configureStore({
     messagesReducer,
   },
   // eslint-disable-next-line no-undef
-  // TODO ??
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV !== 'production', // TODO ??
 });

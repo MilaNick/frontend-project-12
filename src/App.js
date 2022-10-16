@@ -1,7 +1,8 @@
-import {createContext, useEffect, useState} from "react";
+import {createContext, useState} from "react";
 import {Route, Routes, useNavigate} from "react-router-dom";
 
 import Main from 'screens/Main';
+import Chats from "screens/Chats";
 import Layout from 'ui/Layout';
 import Login from 'screens/Login';
 import SignUp from "screens/SignUp";
@@ -10,9 +11,10 @@ import ProtectedRoute from "components/ProtectedRoute";
 
 import './App.scss';
 
-
 const screens = [
   {path: '/', component: Main, accessLevel: 'auth'},
+  {path: '/chats', component: Chats, accessLevel: 'auth'},
+  {path: '/chats/:channelId', component: Chats, accessLevel: 'auth'},
   {path: '/login', component: Login, accessLevel: 'no-auth'},
   {path: '/signup', component: SignUp, accessLevel: 'no-auth'},
   {path: '*', component: NotFoundPage, accessLevel: 'any'},
@@ -21,14 +23,14 @@ const screens = [
 export const AuthContext = createContext(null);
 
 function App() {
-  const [auth, setAuth] = useState(null);
-  useEffect(() => {
+  const [auth, setAuth] = useState(() => {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     if (token && username) {
-      setAuth({ token, username });
+      return { token, username };
     }
-  }, [])
+    return null;
+  });
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();

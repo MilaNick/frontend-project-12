@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children, accessLevel }) => {
     return <Navigate to="/login" />;
   }
   if (accessLevel === 'no-auth' && auth) {
-    return <Navigate to="/" />;
+    return <Navigate to="/chats" />;
   }
   return children;
 };

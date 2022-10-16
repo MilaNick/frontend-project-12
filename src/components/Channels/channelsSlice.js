@@ -1,25 +1,26 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const channelsSlice = createSlice({
-  name: 'channels1',
+  name: 'channels',
   initialState: {
     channels: [],
   },
   reducers: {
-    setChannels(state, {payload}) { // { type: 'xxx', payload: [] }
+    setChannels(state, {payload}) {
       state.channels = payload;
     },
-    addChannel(state, action) {
+    addChannel(state, {payload}) {
+      // todo: refactor
       state.channels.push({
-        id: action.payload.id,
-        name: action.payload.name,
-        removable: action.payload.removable,
-      })
+        id: payload.id,
+        name: payload.name,
+        removable: payload.removable,
+      });
     },
-    removeChannel(state, { payload }) {
-      state.channels = state.channels.filter(({id}) => id !== payload)
-      // state.messages.filter(id => action.payload.channelId === id)
-    },
+    // removeChannel(state, { payload }) {
+    //   state.channels = state.channels.filter(({id}) => id !== payload)
+    //   // state.messages.filter(id => action.payload.channelId === id)
+    // },
     // renameChannel(state, action) {
     //   state.channels.map(channel => channel.name === action.payload.name)
     // },
@@ -27,6 +28,6 @@ const channelsSlice = createSlice({
 })
 
 export const {actions, reducer} = channelsSlice;
-export const {setChannels, addChannel, removeChannel} = actions;
+export const {setChannels, addChannel} = actions;
 export default reducer;
 // TODO проверить, дописать, неверно

@@ -1,14 +1,14 @@
-import {useContext, useEffect} from "react";
-import {useNavigate, useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
 import axios from "axios";
-
-import {AuthContext} from "App";
-import Channels from "components/Channels";
-import Messages from "components/Messages";
+import {useContext, useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
 
 import {setChannels} from "components/Channels/channelsSlice";
 import {setMessages} from "components/Messages/messagesSlice";
+
+import {AuthContext} from "App"; //TODO создать хук useAuth и вынести туда контекст
+import Channels from "components/Channels";
+import Messages from "components/Messages";
 
 import './index.scss';
 

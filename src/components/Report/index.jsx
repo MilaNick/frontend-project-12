@@ -1,6 +1,6 @@
+import cn from 'classnames';
 // import i18n from 'i18next';
 // import resources from 'locales/index.js';
-import cn from 'classnames';
 
 import './index.scss';
 

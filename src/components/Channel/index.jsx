@@ -1,12 +1,16 @@
 import {Link} from "react-router-dom";
+import cn from 'classnames';
 
 import './index.scss';
 
 const Channel = ({id, name, isActive}) => {
+  const classes = cn({
+    item: true,
+    'item--active': isActive,
+  });
   return (
     <>
-      {/* todo: add cn */}
-      <li className={isActive ? 'item item--active' : 'item'} key={id}><Link to={`/chats/${id}`}>{name}</Link></li>
+      <li className={classes} key={id}><Link to={`/chats/${id}`}>{name}</Link></li>
     </>
   )
 };

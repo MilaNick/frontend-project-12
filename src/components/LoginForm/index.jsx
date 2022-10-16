@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
-import * as Yup from 'yup';
 import axios from "axios";
+import * as Yup from 'yup';
 
 import {AuthContext} from "App";
 import EntryForm from "components/EntryForm";

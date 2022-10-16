@@ -1,9 +1,9 @@
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 
+import Report from "components/Report";
+import Button from "ui/Button";
 import Input from "ui/Input";
-import Report from "../Report";
-import Button from "../../ui/Button";
 
 const EntryForm = (props) => {
   const {config, onSubmit, buttonText, errorMessage = ''} = props;

@@ -1,5 +1,5 @@
-import {Link} from "react-router-dom";
 import cn from 'classnames';
+import {Link} from "react-router-dom";
 
 import './index.scss';
 

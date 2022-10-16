@@ -1,14 +1,17 @@
 import cn from 'classnames';
+import {useContext} from "react";
+
+import {AuthContext} from "App";
 
 import './index.scss';
 
 const Message = ({id, body, username}) => {
-  const login = 'Mila';
-  const isAuthor = username === login;
+  const {auth} = useContext(AuthContext);
+
+  const isAuthor = username === auth.username;
   const classes = cn({
     message: true,
-    'message--right': isAuthor,
-    'message--bg-color': isAuthor,
+    'message--user': isAuthor,
   });
   return (
     <div key={id} className={classes}>
@@ -19,6 +22,3 @@ const Message = ({id, body, username}) => {
 };
 
 export default Message;
-
-// TODO если username === login, то надо добавить классы к message message--right message--bg-color
-// TODO куда вставить channelId

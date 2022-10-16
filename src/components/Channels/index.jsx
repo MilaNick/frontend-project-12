@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import Channel from "components/Channel";
 
@@ -6,7 +6,7 @@ import './index.scss';
 
 const plus = '+';
 
-const Channels = ({ activeChannelId }) => {
+const Channels = ({activeChannelId}) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
   // console.log(JSON.stringify(channels, null, 4))
   return (
@@ -18,12 +18,12 @@ const Channels = ({ activeChannelId }) => {
       <ul className="main-channels__names">
         {channels.map((channel) => {
           return (
-              <Channel
-                key={channel.id}
-                id={channel.id}
-                name={channel.name}
-                isActive={ activeChannelId === channel.id}
-              />
+            <Channel
+              key={channel.id}
+              id={channel.id}
+              name={channel.name}
+              isActive={activeChannelId === channel.id}
+            />
           )
         })}
       </ul>

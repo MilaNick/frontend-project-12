@@ -10,9 +10,9 @@ const messagesSlice = createSlice({
       state.messages = payload;
     },
     addMessage(state, {payload}) {
-      const { id, body, channelId, username } = payload;
+      const { body, channelId, username } = payload;
       state.messages.push({
-        id,
+        id: Math.floor(Math.random() * 1000),
         body,
         channelId,
         username,
@@ -27,5 +27,3 @@ const messagesSlice = createSlice({
 export const { actions, reducer } = messagesSlice;
 export const {setMessages, addMessage, removeMessage} = actions;
 export default  reducer;
-
-// TODO проверить, дописать, неверно

@@ -53,4 +53,3 @@ const Messages = ({ activeChannelId }) => {
 };
 
 export default Messages;
-// TODO where add channelId: action.payload.channelId?

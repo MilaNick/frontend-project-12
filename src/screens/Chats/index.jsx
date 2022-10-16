@@ -27,6 +27,7 @@ const Chats = () => {
         }
       }).then((response) => {
         const channelsAction = setChannels(response.data.channels);
+        console.log((response.data.channels))
         dispatch(channelsAction);
         if (channelId === null) {
           const firstChannel = response.data.channels[0];

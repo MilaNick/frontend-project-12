@@ -1,7 +1,7 @@
-import Button from "ui/Button";
 import {useContext} from "react";
 
-import {AuthContext} from "../../App";
+import {AuthContext} from "App";
+import Button from "ui/Button";
 
 import './index.scss';
 

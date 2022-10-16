@@ -1,8 +1,8 @@
 import cn from 'classnames';
 
-import './index.scss';
-
 import {Link} from "react-router-dom";
+
+import './index.scss';
 
 const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, top, absolute = false}) => {
   const classes = cn({

@@ -13,6 +13,7 @@ const messagesSlice = createSlice({
       const { body, channelId, username } = payload;
       state.messages.push({
         id: Math.floor(Math.random() * 1000),
+        date: Date.now(),
         body,
         channelId,
         username,

@@ -20,7 +20,7 @@ const LoginForm = () => {
       type: "password",
       schema: Yup.string().required('Обязательное поле')
     }
-  ]
+  ];
 
   return (
     <EntryForm
@@ -29,7 +29,7 @@ const LoginForm = () => {
         setErrorReport('');
         axios.post('/api/v1/login', {username: name, password: password}).then((response) => {
           setTimeout(() => {
-            const { token ,username} = response.data;
+            const { token, username} = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('username', username);
             setAuth({token, username})

@@ -88,6 +88,15 @@ div {
   border: 3px solid $bg-primary;
 }
 
+.tippy {
+  &-box {
+    background: $font-base;
+  }
+  &-arrow {
+    color: $font-base;
+  }
+}
+
 //---------------***---------------
 .container {
   display: flex;

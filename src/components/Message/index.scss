@@ -7,15 +7,34 @@
   max-width: 90%;
   padding: 1rem;
   margin-top: 1rem;
-  background: $white;
-  border-top-right-radius: 2rem;
+
+  &--user {
+    margin-left: auto;
+    background: $light-blue-10;
+    border-top-left-radius: 2rem;
+  }
+
+  &:not(&--user) {
+    background: $white;
+    border-top-right-radius: 2rem;
+  }
 
   &__username {
     margin-right: 1rem;
     font-weight: $black;
   }
-  &--user {
-    margin-left: auto;
-    background: $light-blue-10;
+
+  &__text {
+    word-break: break-word;
   }
 }
+
+.time {
+  margin-left: 1rem;
+  font-weight: $regular;
+  color: $dark-beige;
+}
+
+// TODO block.scrollTop = block.scrollHeight;
+// TODO ссылка на элемент должна быть в рефе
+// TODO когда запускать? на добавление сообщений (при отправки сообщений и запросы с бэка)

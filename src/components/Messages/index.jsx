@@ -29,9 +29,9 @@ const Messages = ({ activeChannelId }) => {
         <div className="main-message__count">{messages.length} сообщений</div>
       </div>
       <div className="main-message__container">
-        {messages.map(({id, body, username}) => {
+        {messages.map(({id, body, username, date}) => {
           return (
-            <Message key={id} id={id} body={body} username={username}/>
+            <Message key={id} id={id} body={body} username={username} date={date}/>
           )
         })}
       </div>
@@ -44,7 +44,7 @@ const Messages = ({ activeChannelId }) => {
           dispatch(addMessage({body: value, channelId: activeChannelId, username: auth.username}));
           setValue('');
         }} >
-          <Input placeholder='Введите сообщение' value={value} onChange={(e) => setValue(e.target.value)}/>
+          <Input autoFocus placeholder='Введите сообщение' value={value} onChange={(e) => setValue(e.target.value)}/>
           <Button type='submit' size='sm' absolute>{arrow}</Button>
         </form>
       </div>

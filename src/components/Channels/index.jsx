@@ -29,7 +29,7 @@ const Channels = ({activeChannelId}) => {
             <Channel
               key={channel.id}
               id={channel.id}
-              name={channel.name}
+              name={`# ${channel.name}`}
               isActive={activeChannelId === channel.id}
             />
           )

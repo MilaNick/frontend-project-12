@@ -7,6 +7,7 @@ import {io} from "socket.io-client";
 import store from 'store/store';
 
 import App from 'App';
+import {addChannel} from "components/Channels/channelsSlice";
 import {addMessage} from "components/Messages/messagesSlice";
 
 import './assets/styles/index.scss';
@@ -17,6 +18,9 @@ const root = createRoot(container);
 export const socket = io();
 socket.on('newMessage', ({body, channelId, id, username}) => {
   store.dispatch(addMessage({body, channelId, id, username}));
+});
+socket.on('newChannel', ({id, name, removable}) => {
+  store.dispatch(addChannel({id, name, removable}))
 });
 
 root.render(

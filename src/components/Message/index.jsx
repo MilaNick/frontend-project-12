@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import {useContext} from "react";
+import {forwardRef, useContext} from "react";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -7,7 +7,7 @@ import {AuthContext} from "App";
 
 import './index.scss';
 
-const Message = ({id, body, username, date}) => {
+const Message = ({body, username, date}, ref) => {
   const {auth} = useContext(AuthContext);
 
   const isAuthor = username === auth.username;
@@ -17,7 +17,7 @@ const Message = ({id, body, username, date}) => {
   });
 
   return (
-    <div key={id} className={classes}>
+    <div className={classes} ref={ref}>
       <div className="message__username">{username}
         {date &&
         <Tippy
@@ -48,4 +48,4 @@ const Message = ({id, body, username, date}) => {
   )
 };
 
-export default Message;
+export default forwardRef(Message);

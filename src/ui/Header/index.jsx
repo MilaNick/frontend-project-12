@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/" className="logo__one">Mila🚀Chat</Link>
+        <Link to="/" className="logo__one">Hexlet🚀Chat</Link>
       </div>
       <Button onClick={logout} size='sm' top='sm'>Выйти</Button>
     </header>

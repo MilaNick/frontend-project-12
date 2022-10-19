@@ -1,7 +1,7 @@
-import {useContext, useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useContext, useState} from "react";
+import {useSelector} from "react-redux";
 
-import {addMessage} from "components/Messages/messagesSlice";
+import {socket} from "index";
 
 import {AuthContext} from "App";
 import Message from "components/Message";
@@ -12,24 +12,13 @@ import './index.scss';
 
 const arrow = '>';
 
-let i = 0;
-const Messages = ({ socket, activeChannelId }) => {
-
-  useEffect(() => {
-   socket.on('newMessage', ({body, channelId, id, username}) => {
-     i++;
-     console.log('I ---->', i)
-     dispatch(addMessage({body, channelId, id, username}));
-    });
-  }, [])
-
+const Messages = ({activeChannelId }) => {
   const channel = useSelector((state) => state.channelsReducer.channels.find((channel) => channel.id === activeChannelId));
   const messages = useSelector((state) => {
     return state.messagesReducer.messages.filter(message => message.channelId === activeChannelId);
   });
   const [value, setValue] = useState('');
   const {auth} = useContext(AuthContext);
-  const dispatch = useDispatch();
   if (!channel) {
     return null;
   }
@@ -53,7 +42,9 @@ const Messages = ({ socket, activeChannelId }) => {
           if(!value.trim()){
             return;
           }
-          socket.emit('newMessage', { body: value, channelId: activeChannelId, username: auth.username });
+          socket.emit('newMessage', { body: value, channelId: activeChannelId, username: auth.username }, (response) => {
+            console.log(response.status); // ok
+          });
           setValue('');
         }} >
           <Input autoFocus placeholder='Введите сообщение' value={value} onChange={(e) => setValue(e.target.value)}/>

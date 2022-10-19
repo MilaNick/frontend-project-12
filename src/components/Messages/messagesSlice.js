@@ -11,15 +11,13 @@ const messagesSlice = createSlice({
     },
     addMessage(state, {payload}) {
       const { body, channelId, id, username } = payload;
-      if (!state.messages.find(message => message?.id === id)) {
-        state.messages.push({
-          date: Date.now(),
-          body,
-          id,
-          channelId,
-          username,
-        });
-      }
+      state.messages.push({
+        date: Date.now(),
+        body,
+        id,
+        channelId,
+        username,
+      });
     },
     removeMessage(state, action) {
       state.messages = state.messages.filter(id => id !== action.payload.id)

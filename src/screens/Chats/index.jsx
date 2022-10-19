@@ -2,7 +2,6 @@ import axios from "axios";
 import {useContext, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
-import { io } from "socket.io-client";
 
 import {setChannels} from "components/Channels/channelsSlice";
 import {setMessages} from "components/Messages/messagesSlice";
@@ -12,8 +11,6 @@ import Channels from "components/Channels";
 import Messages from "components/Messages";
 
 import './index.scss';
-
-const socket = io();
 
 const Chats = () => {
   const {auth} = useContext(AuthContext);
@@ -37,7 +34,9 @@ const Chats = () => {
         }
         const messages = setMessages(response.data.messages);
         dispatch(messages);
-      });
+      }).catch((e) => {
+        console.log('Перезагрузите страницу, ошибка:', e)
+      })
     }
   }, [])
 
@@ -45,7 +44,7 @@ const Chats = () => {
     <div className="chat-container">
       <div className="main__wrap shadow">
         <Channels activeChannelId={channelId}/>
-        <Messages socket={socket} activeChannelId={channelId}/>
+        <Messages activeChannelId={channelId}/>
       </div>
     </div>
   )

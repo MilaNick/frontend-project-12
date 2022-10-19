@@ -43,7 +43,7 @@ const Messages = ({activeChannelId }) => {
             return;
           }
           socket.emit('newMessage', { body: value, channelId: activeChannelId, username: auth.username }, (response) => {
-            console.log(response.status); // ok
+            console.log(response.status); // TODO как обработать этот статус, куда вывести?
           });
           setValue('');
         }} >

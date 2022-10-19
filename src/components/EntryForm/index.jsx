@@ -3,7 +3,9 @@ import * as Yup from 'yup';
 
 import Report from "components/Report";
 import Button from "ui/Button";
+import Form from "ui/Form";
 import Input from "ui/Input";
+
 
 const EntryForm = (props) => {
   const {config, onSubmit, buttonText, errorMessage = ''} = props;
@@ -19,7 +21,9 @@ const EntryForm = (props) => {
 
   return (
     <>
-      <form className="card__form" onSubmit={formik.handleSubmit}>
+      <Form
+        className="card__form"
+        onSubmit={formik.handleSubmit}>
         {/* eslint-disable-next-line no-unused-vars */}
         {config.map(({name, initialValue, schema, ...rest}) => (
           <Input
@@ -31,7 +35,7 @@ const EntryForm = (props) => {
         ))}
         <Button type="submit" fluid size='lg' top='lg'>{buttonText}</Button>
         {errorMessage && <Report type='error'>{errorMessage}</Report>}
-      </form>
+      </Form>
     </>
   )
 }

@@ -5,14 +5,15 @@ import {socket} from "index";
 
 import {AuthContext} from "App";
 import Message from "components/Message";
-import Input from "ui/Input";
 import Button from "ui/Button";
+import Form from "ui/Form";
+import Textarea from "ui/Textarea";
 
 import './index.scss';
 
 const arrow = '>';
 
-const Messages = ({activeChannelId }) => {
+const Messages = ({activeChannelId}) => {
   const channel = useSelector((state) => state.channelsReducer.channels.find((channel) => channel.id === activeChannelId));
   const messages = useSelector((state) => {
     return state.messagesReducer.messages.filter(message => message.channelId === activeChannelId);
@@ -21,6 +22,19 @@ const Messages = ({activeChannelId }) => {
   const {auth} = useContext(AuthContext);
   if (!channel) {
     return null;
+  }
+  const sendMessage = () => {
+    if (!value.trim()) {
+      return;
+    }
+    socket.emit('newMessage', {
+      body: value,
+      channelId: activeChannelId,
+      username: auth.username
+    }, (response) => {
+      console.log(response.status); // TODO как обработать этот статус, куда вывести?
+    });
+    setValue('');
   }
 
   return (
@@ -37,19 +51,15 @@ const Messages = ({activeChannelId }) => {
         })}
       </div>
       <div className="main-message__wrap-input">
-        <form className="form" onSubmit={(e) => {
-          e.preventDefault();
-          if(!value.trim()){
-            return;
-          }
-          socket.emit('newMessage', { body: value, channelId: activeChannelId, username: auth.username }, (response) => {
-            console.log(response.status); // TODO как обработать этот статус, куда вывести?
-          });
-          setValue('');
-        }} >
-          <Input autoFocus placeholder='Введите сообщение' value={value} onChange={(e) => setValue(e.target.value)}/>
+        <Form className="form" onSubmit={sendMessage}>
+          <Textarea autoFocus placeholder='Введите сообщение' value={value} onKeyPress={(e) => {
+            if (e.charCode === 13 && !e.shiftKey) {
+              e.preventDefault();
+              sendMessage();
+            }
+          }} onChange={(e) => setValue(e.target.value)}/>
           <Button type='submit' size='sm' absolute>{arrow}</Button>
-        </form>
+        </Form>
       </div>
     </div>
   )

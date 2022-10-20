@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import {forwardRef, useContext} from "react";
+import {forwardRef, useContext} from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import {AuthContext} from "App";
+import {AuthContext} from 'App';
 
 import './index.scss';
 
@@ -18,7 +18,7 @@ const Message = ({body, username, date}, ref) => {
 
   return (
     <div className={classes} ref={ref}>
-      <div className="message__username">{username}
+      <div className='message__username'>{username}
         {date &&
         <Tippy
           className='tippy'
@@ -43,7 +43,7 @@ const Message = ({body, username, date}, ref) => {
           </span>
         </Tippy>
       }</div>
-      <div className="message__text">{body}</div>
+      <div className='message__text'>{body}</div>
     </div>
   )
 };

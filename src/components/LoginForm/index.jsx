@@ -1,9 +1,9 @@
-import axios from "axios";
-import {useContext, useState} from "react";
+import axios from 'axios';
+import {useContext, useState} from 'react';
 import * as Yup from 'yup';
 
-import {AuthContext} from "App";
-import EntryForm from "components/EntryForm";
+import {AuthContext} from 'App';
+import EntryForm from 'components/EntryForm';
 
 const LoginForm = () => {
   const [errorReport, setErrorReport] = useState('');
@@ -17,7 +17,7 @@ const LoginForm = () => {
     {
       name: 'password',
       placeholder: 'Пароль',
-      type: "password",
+      type: 'password',
       schema: Yup.string().required('Обязательное поле')
     }
   ];

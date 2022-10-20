@@ -1,10 +1,10 @@
-import {useFormik} from "formik";
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
-import Report from "components/Report";
-import Button from "ui/Button";
-import Form from "ui/Form";
-import Input from "ui/Input";
+import Report from 'components/Report';
+import Button from 'ui/Button';
+import Form from 'ui/Form';
+import Input from 'ui/Input';
 
 
 const EntryForm = (props) => {
@@ -22,7 +22,7 @@ const EntryForm = (props) => {
   return (
     <>
       <Form
-        className="card__form"
+        className='card__form'
         onSubmit={formik.handleSubmit}>
         {/* eslint-disable-next-line no-unused-vars */}
         {config.map(({name, initialValue, schema, ...rest}) => (
@@ -33,7 +33,7 @@ const EntryForm = (props) => {
             {...formik.getFieldProps(name)}
           />
         ))}
-        <Button type="submit" fluid size='lg' top='lg'>{buttonText}</Button>
+        <Button type='submit' fluid size='lg' top='lg'>{buttonText}</Button>
         {errorMessage && <Report type='error'>{errorMessage}</Report>}
       </Form>
     </>

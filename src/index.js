@@ -2,13 +2,13 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import {io} from "socket.io-client";
+import {io} from 'socket.io-client';
 
 import store from 'store/store';
 
 import App from 'App';
-import {addChannel} from "components/Channels/channelsSlice";
-import {addMessage} from "components/Messages/messagesSlice";
+import {addChannel} from 'components/Channels/channelsSlice';
+import {addMessage} from 'components/Messages/messagesSlice';
 
 import './assets/styles/index.scss';
 

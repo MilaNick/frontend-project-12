@@ -9,5 +9,5 @@ export default configureStore({
     messagesReducer,
   },
   // eslint-disable-next-line no-undef
-  devTools: process.env.NODE_ENV !== 'production', // TODO ??
+  devTools: process.env.NODE_ENV !== 'production', // TODO почему подчеркивает линтер
 });

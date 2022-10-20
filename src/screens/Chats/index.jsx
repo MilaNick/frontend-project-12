@@ -1,14 +1,14 @@
-import axios from "axios";
-import {useContext, useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {useNavigate, useParams} from "react-router-dom";
+import axios from 'axios';
+import {useContext, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {useNavigate, useParams} from 'react-router-dom';
 
-import {setChannels} from "components/Channels/channelsSlice";
-import {setMessages} from "components/Messages/messagesSlice";
+import {setChannels} from 'components/Channels/channelsSlice';
+import {setMessages} from 'components/Messages/messagesSlice';
 
-import {AuthContext} from "App"; //TODO создать хук useAuth и вынести туда контекст
-import Channels from "components/Channels";
-import Messages from "components/Messages";
+import {AuthContext} from 'App'; //TODO создать хук useAuth и вынести туда контекст
+import Channels from 'components/Channels';
+import Messages from 'components/Messages';
 
 import './index.scss';
 
@@ -41,8 +41,8 @@ const Chats = () => {
   }, [])
 
   return (
-    <div className="chat-container">
-      <div className="main__wrap shadow">
+    <div className='chat-container'>
+      <div className='main__wrap shadow'>
         <Channels activeChannelId={channelId}/>
         <Messages activeChannelId={channelId}/>
       </div>

@@ -1,9 +1,9 @@
-import axios from "axios";
-import {useContext} from "react";
+import axios from 'axios';
+import {useContext} from 'react';
 import * as Yup from 'yup'
 
-import {AuthContext} from "App";
-import EntryForm from "components/EntryForm";
+import {AuthContext} from 'App';
+import EntryForm from 'components/EntryForm';
 
 const SignupForm = () => {
   const {setAuth} = useContext(AuthContext);
@@ -17,7 +17,7 @@ const SignupForm = () => {
     {
       name: 'password',
       placeholder: 'Пароль',
-      type: "password",
+      type: 'password',
       schema: Yup.string()
         .matches(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, 'Требуются строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов')
         .required('Обязательное поле'),
@@ -25,7 +25,7 @@ const SignupForm = () => {
     {
       name: 'confirmPassword',
       placeholder: 'Повторите пароль',
-      type: "password",
+      type: 'password',
       schema: Yup.string().oneOf([Yup.ref('password')], 'Пароли не совпадают').required('Обязательное поле'),
     }
 

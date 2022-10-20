@@ -1,12 +1,12 @@
-import {createContext, useState} from "react";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {createContext, useState} from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 
-import Chats from "screens/Chats";
+import Chats from 'screens/Chats';
 import Login from 'screens/Login';
 import Main from 'screens/Main';
 import NotFoundPage from 'screens/NotFoundPage';
-import ProtectedRoute from "components/ProtectedRoute";
-import SignUp from "screens/SignUp";
+import ProtectedRoute from 'components/ProtectedRoute';
+import SignUp from 'screens/SignUp';
 import Layout from 'ui/Layout';
 
 import './App.scss';

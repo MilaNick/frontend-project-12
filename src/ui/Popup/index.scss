@@ -1,0 +1,36 @@
+@import '../../assets/styles/variables';
+
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $transparent-grey;
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    max-width: 70rem;
+    padding: 2rem;
+    border-radius: .3rem;
+    background: $bg-primary;
+    transform: scale(0.5);
+    transition: 0.4s all;
+  }
+
+  &--shown {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+  }
+
+}

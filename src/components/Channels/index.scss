@@ -3,7 +3,8 @@
 .main-channels {
   width: 20%;
   padding: 3rem;
-
+  -ms-overflow-y: scroll;
+  overflow-y: scroll;
   &__wrap {
     display: flex;
     justify-content: space-between;
@@ -13,4 +14,22 @@
   &__names {
     margin-top: 2rem;
   }
+  form {
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h3 {
+    display: inline-flex;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: end;
+  }
+
+  }
+
 }

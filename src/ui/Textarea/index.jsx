@@ -1,13 +1,18 @@
-import Report from "components/Report";
+import cn from 'classnames';
+import Report from 'components/Report';
 
 import './index.scss';
-
+// TODO подключить плагин автосайз к текстарее
 const Textarea = (props) => {
-  const {className = '', error = '', ...nativeProps} = props;
+  const {error = '', ...nativeProps} = props;
+  const classes = cn({
+    textarea: true,
+    'textarea--error': error,
+  })
   return (
     <>
       <textarea
-        className={['textarea', className, error ? 'textarea--error' : ''].filter(Boolean).join(' ')}
+        className={classes}
         {...nativeProps}
       />
       {error && <Report type='error'>{error}</Report>}

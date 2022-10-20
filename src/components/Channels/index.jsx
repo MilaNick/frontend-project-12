@@ -1,29 +1,28 @@
+import {useState} from 'react';
 import {useSelector} from 'react-redux';
 
-// import {socket} from "index";
-
-import Channel from "components/Channel";
+import Channel from 'components/Channel';
+import CreateChannel from 'components/CreateChannel';
+import Button from 'ui/Button';
 
 import './index.scss';
-
 
 const plus = '+';
 
 const Channels = ({activeChannelId}) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
-  // console.log(JSON.stringify(channels, null, 4))
-  return (
-    <div className="main-channels">
-      <div className="main-channels__wrap">
-        <h3 className="main-channels__title">Каналы</h3>
-        <button className="btn btn--size-sm">{plus}</button>
-        {/*<form action=""></form>*/}
+  const [shown, setShown] = useState(false);
 
-        {/*// emit new channel*/}
-        {/*//socket.emit('newChannel', { name: "new channel" });*/}
+  return (
+    <div className='main-channels'>
+      <div className='main-channels__wrap'>
+        <h3 className='main-channels__title'>Каналы</h3>
+        <Button size='sm' onClick={() => setShown(true)}>{plus}</Button>
+        <CreateChannel channels={channels} shown={shown} setShown={setShown} />
+
 
       </div>
-      <ul className="main-channels__names">
+      <ul className='main-channels__names'>
         {channels.map((channel) => {
           return (
             <Channel

@@ -1,3 +1,4 @@
+import './index.scss'; // TODO перенести в компонент стили
 
 const Form = ({children, className, onSubmit}) => {
   return (

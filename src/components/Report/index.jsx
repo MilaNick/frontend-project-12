@@ -6,8 +6,8 @@ import './index.scss';
 
 const Report = ({children, type}) => {
   const classes = cn({
-    message: true,
-    'message__error': type === 'error',
+    report: true,
+    'report__error': type === 'error',
   })
 
   // const i18nextInstance = i18n.createInstance();

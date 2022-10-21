@@ -6,7 +6,6 @@ import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
 
-
 const EntryForm = (props) => {
   const {config, onSubmit, buttonText, errorMessage = ''} = props;
 

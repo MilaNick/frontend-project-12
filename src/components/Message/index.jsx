@@ -21,25 +21,25 @@ const Message = ({body, username, date}, ref) => {
       <div className='message__username'>{username}
         {date &&
         <Tippy
-          className='tippy'
           content={
-          (new Date(date)).toLocaleString('ru-RU', {
-          hour12: false,
-          month: 'long',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit',
-            second: '2-digit',
-            year: 'numeric',
-            weekday: 'short',
-        })}>
+            (new Date(date)).toLocaleString('ru-RU', {
+              hour12: false,
+              month: 'long',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              year: 'numeric',
+              weekday: 'short',
+            }
+          )}>
           <span className='time'>
             {(new Date(date)).toLocaleString('ru-RU', {
               hour12: false,
               hour: '2-digit',
               minute: '2-digit',
-
-            })}
+            }
+          )}
           </span>
         </Tippy>
       }</div>

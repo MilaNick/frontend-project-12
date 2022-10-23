@@ -1,5 +1,7 @@
 import {useContext, useEffect, useRef, useState} from 'react';
 import {useSelector} from 'react-redux';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 
 import {socket} from 'index';
 
@@ -7,11 +9,10 @@ import {AuthContext} from 'App';
 import Message from 'components/Message';
 import Button from 'ui/Button';
 import Form from 'ui/Form';
+import Icon from 'ui/Icon';
 import Textarea from 'ui/Textarea';
 
 import './index.scss';
-
-const arrow = '>';
 
 const Messages = ({activeChannelId}) => {
   const channel = useSelector((state) => state.channelsReducer.channels.find((channel) => channel.id === activeChannelId));
@@ -50,7 +51,9 @@ const Messages = ({activeChannelId}) => {
   return (
     <div className='main-message'>
       <div className='main-message__header'>
-        <h3 className='main-message__title'>{channel.name}</h3>
+        <Tippy className='tippy' content={channel.name}>
+          <h3 className='main-message__title'>{channel.name}</h3>
+        </Tippy>
         <div className='main-message__count'>{messages.length} сообщений</div>
       </div>
       <div className='main-message__container'>
@@ -73,7 +76,7 @@ const Messages = ({activeChannelId}) => {
               sendMessage();
             }
           }} onChange={(e) => setValue(e.target.value)}/>
-          <Button type='submit' size='sm' absolute>{arrow}</Button>
+          <Button type='submit' size='sm' absolute><Icon icon='ArrowRight'/></Button>
         </Form>
       </div>
     </div>

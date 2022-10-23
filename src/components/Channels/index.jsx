@@ -5,10 +5,9 @@ import {useSelector} from 'react-redux';
 import Channel from 'components/Channel';
 import CreateChannel from 'components/CreateChannel';
 import Button from 'ui/Button';
+import Icon from 'ui/Icon';
 
 import './index.scss';
-
-const plus = '+';
 
 const Channels = ({activeChannelId}) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
@@ -17,20 +16,19 @@ const Channels = ({activeChannelId}) => {
   const [justCreatedChannelName, setJustCreatedChannelName] = useState(null)
   useEffect(() => {
     if(justCreatedChannelName) {
-      const exist = channels.find(channel => channel.name === justCreatedChannelName)
-      if (exist) {
-        navigate(`/chats/${exist.id}`)
+      const justCreatedChannel = channels.find(channel => channel.name === justCreatedChannelName)
+      if (justCreatedChannel) {
+        navigate(`/chats/${justCreatedChannel.id}`)
         setJustCreatedChannelName(null)
       }
     }
   }, [channels, justCreatedChannelName])
 
-
   return (
     <div className='main-channels'>
       <div className='main-channels__wrap'>
         <h3 className='main-channels__title'>Каналы</h3>
-        <Button size='sm' onClick={() => setShown(true)}>{plus}</Button>
+        <Button size='sm' onClick={() => setShown(true)}><Icon icon='Plus'/></Button>
         <CreateChannel onAddChannel={setJustCreatedChannelName} channels={channels} shown={shown} setShown={setShown} />
       </div>
       <ul className='main-channels__names'>
@@ -39,8 +37,9 @@ const Channels = ({activeChannelId}) => {
             <Channel
               key={channel.id}
               id={channel.id}
-              name={`# ${channel.name}`}
+              name={channel.name}
               isActive={activeChannelId === channel.id}
+              removable={channel.removable}
             />
           )
         })}

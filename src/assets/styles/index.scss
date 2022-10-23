@@ -89,7 +89,9 @@ div {
 }
 
 .tippy {
+  word-break: break-word;
   &-box {
+    width: 80vw;
     background: $font-base;
   }
   &-arrow {

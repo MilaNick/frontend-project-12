@@ -16,10 +16,13 @@
 
   &--size {
     &-sm {
+      padding: .4rem;
+      color: $dark-grey;
+    }
+    &-md {
       padding: .8rem;
       font-size: 1.6rem;
       line-height: 2.4rem;
-      color: $dark-grey;
     }
 
     &-lg {
@@ -42,15 +45,23 @@
     margin-left: 1rem;
   }
 
+  &--light {
+    color: $bg-secondary;
+  }
+
   &:hover {
     background: transparent;
     border: none;
     outline: 1px solid $light-blue-77;
   }
 
-  &--absolute{
+  &--relative {
+    position: relative;
+  }
+
+  &--absolute {
     position: absolute;
     right: 3%;
-    top: 30%;
+    top: calc(50% - 1.2rem);
   }
 }

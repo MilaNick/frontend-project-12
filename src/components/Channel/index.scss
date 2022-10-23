@@ -1,12 +1,33 @@
 @import '../../assets/styles/variables';
 
-.main-channels__names .item {
-  margin-top: 1rem;
-  font-size: 2rem;
-  line-height: 2.8rem;
+.channel {
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    &--active {
+      .channel-item__link {
+        font-weight: $black;
+        color: $salmon-pink;
+      }
+    }
+  }
+
+  &__drop-down {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 18rem;
+    top: 0;
+    left: 2.8rem;
+    z-index: 12;
+    padding: 1rem;
+    background: $bg-primary
+  }
+
 }
 
-.item--active a {
-  font-weight: $black;
-  color: $salmon-pink;
-}

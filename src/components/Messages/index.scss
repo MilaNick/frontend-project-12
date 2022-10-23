@@ -22,6 +22,11 @@
     overflow-y: scroll;
   }
 
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   &__wrap-input {
     position: relative;
     flex-shrink: 0;

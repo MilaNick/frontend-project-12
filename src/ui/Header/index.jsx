@@ -14,7 +14,7 @@ const Header = () => {
       <div className='logo'>
         <Link to='/' className='logo__one'>Hexlet🚀Chat</Link>
       </div>
-      <Button onClick={logout} size='sm' top='sm'>Выйти</Button>
+      <Button onClick={logout} size='md' top='sm'>Выйти</Button>
     </header>
   );
 }

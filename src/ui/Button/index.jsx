@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import './index.scss';
 
-const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, top, left, absolute = false}) => {
+const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, light, top, left, relative, absolute}) => {
   const classes = cn({
     btn: true,
     [className]: Boolean(className),
@@ -12,6 +12,8 @@ const Button = ({children, type = 'button', className = '', href = '', onClick, 
     'btn--left': left,
     'btn--fluid': fluid,
     'btn--absolute': absolute,
+    'btn--light': light,
+    'btn--relative': relative,
   })
 
   if (href) {

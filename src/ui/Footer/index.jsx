@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className='footer'>
       <div className='created-by'>created by <a href='https://github.com/MilaNick/frontend-project-12'
                                                  target='_blank' rel='noreferrer'>MilaNick</a></div>
-      <Button onClick={logout} size='sm' top='sm'>Выйти</Button>
+      <Button onClick={logout} size='md' top='sm'>Выйти</Button>
     </footer>
   )
 }

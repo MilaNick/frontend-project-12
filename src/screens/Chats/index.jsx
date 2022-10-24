@@ -22,12 +22,13 @@ const Chats = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    if(isReady) {
-      if(channelId && channels.length > 0) {
+    if (isReady) {
+      const isChannelExisted = channels.some(channel => channel.id === channelId);
+      if (!isChannelExisted && channels.length > 0) {
         navigate(`/chats/${channels[0].id}`);
       }
     }
-  },[isReady, channels]);
+  }, [isReady, channels]);
 
   useEffect(() => {
     if (auth) {
@@ -54,8 +55,12 @@ const Chats = () => {
   return (
     <div className='chat-container'>
       <div className='main__wrap shadow'>
-        <Channels activeChannelId={channelId}/>
-        <Messages activeChannelId={channelId}/>
+        {isReady && (
+          <>
+            <Channels activeChannelId={channelId}/>
+            <Messages activeChannelId={channelId}/>
+          </>
+        )}
       </div>
     </div>
   )

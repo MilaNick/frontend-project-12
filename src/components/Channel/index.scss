@@ -20,14 +20,26 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    align-items: flex-start;
     width: 18rem;
     top: 0;
     left: 2.8rem;
     z-index: 12;
     padding: 1rem;
-    background: $bg-primary
+    background: $bg-primary;
+    //opacity: 0;
+    //transform: scale(0.5);
+    //transition: 0.4s all;
+    &--click {
+      cursor: pointer;
+    }
   }
+  &--shown {
+    //opacity: 1;
+    ////pointer-events: all;
+    //transform: scale(1);
+  }
+
 
 }
 

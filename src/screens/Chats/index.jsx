@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {useContext, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import {useContext, useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom';
 
 import {setChannels} from 'components/Channels/channelsSlice';
@@ -13,11 +13,21 @@ import Messages from 'components/Messages';
 import './index.scss';
 
 const Chats = () => {
+  const channels = useSelector((state) => state.channelsReducer.channels);
   const {auth} = useContext(AuthContext);
   const dispatch = useDispatch();
   const params = useParams();
   const channelId = params.channelId ? Number(params.channelId) : null;
   const navigate = useNavigate();
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if(isReady) {
+      if(channelId && channels.length > 0) {
+        navigate(`/chats/${channels[0].id}`);
+      }
+    }
+  },[isReady, channels]);
 
   useEffect(() => {
     if (auth) {
@@ -34,6 +44,7 @@ const Chats = () => {
         }
         const messages = setMessages(response.data.messages);
         dispatch(messages);
+        setIsReady(true);
       }).catch((e) => {
         console.log('Перезагрузите страницу, ошибка:', e)
       })

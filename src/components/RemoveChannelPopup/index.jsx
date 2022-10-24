@@ -8,6 +8,7 @@ const RemoveChannelPopup = ({id, shown, setShown}) => {
   const deleteChannel = () => {
     setShown(true);
     socket.emit('removeChannel', {id});
+    closePopup();
   }
 
   const closePopup = () => {

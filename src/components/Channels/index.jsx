@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 
 import Channel from 'components/Channel';
-import CreateChannel from 'components/CreateChannel';
+import CreateChannelPopup from 'components/CreateChannelPopup';
 import Button from 'ui/Button';
 import Icon from 'ui/Icon';
 
@@ -29,7 +29,7 @@ const Channels = ({activeChannelId}) => {
       <div className='main-channels__wrap'>
         <h3 className='main-channels__title'>Каналы</h3>
         <Button size='sm' onClick={() => setShown(true)}><Icon icon='Plus'/></Button>
-        <CreateChannel onAddChannel={setJustCreatedChannelName} channels={channels} shown={shown} setShown={setShown} />
+        <CreateChannelPopup onAddChannel={setJustCreatedChannelName} channels={channels} shown={shown} setShown={setShown} />
       </div>
       <ul className='main-channels__names'>
         {channels.map((channel) => {

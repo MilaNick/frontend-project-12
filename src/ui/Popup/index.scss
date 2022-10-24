@@ -11,9 +11,9 @@
   width: 100vw;
   height: 100vh;
   background: $transparent-grey;
-  opacity: 0;
-  transition: 0.5s;
   pointer-events: none;
+  animation-name: opacity;
+  animation-duration: 800ms;
 
   &__content {
     display: flex;
@@ -23,14 +23,12 @@
     padding: 2rem;
     border-radius: .3rem;
     background: $bg-primary;
-    transform: scale(0.5);
-    transition: 0.4s all;
+    animation-name: scale;
+    animation-duration: 600ms;
   }
 
   &--shown {
-    opacity: 1;
     pointer-events: all;
-    transform: scale(1);
   }
   .wrap {
     display: flex;
@@ -41,4 +39,28 @@
     display: inline-flex;
   }
 
+  &__text {
+    font-size: 2.3rem;
+    line-height: 3.5rem;
+    padding: 1rem;
+  }
+
+}
+
+@keyframes opacity {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from{
+    transform: scale(0.5);
+  }
+  to{
+    transform: scale(1);
+  }
 }

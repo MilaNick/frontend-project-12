@@ -23,7 +23,7 @@ socket.on('newChannel', ({id, name, removable}) => {
   store.dispatch(addChannel({id, name, removable}))
 });
 socket.on('removeChannel', ({id}) => {
-  store.dispatch(removeChannel({id}))
+  store.dispatch(removeChannel(id))
 });
 socket.on('renameChannel', ({id, name, removable}) => {
   store.dispatch(renameChannel({id, name, removable}))

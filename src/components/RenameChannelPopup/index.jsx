@@ -8,14 +8,14 @@ import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
 
-const RenameChannelPopup = ({channels, shown, setShown, onAddChannel}) => {
+const RenameChannelPopup = ({channels, setShown, onAddChannel}) => {
 
   const closePopup = () => {
     setShown(false)
   }
 
   return (
-    <Popup shown={shown} close={closePopup} title='Добавить канал'>
+    <Popup close={closePopup} title='Добавить канал'>
       <Form onSubmit={}>
         <Input value={} onChange={}/>
         {error && <Report type='error'>{error}</Report>}

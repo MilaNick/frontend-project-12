@@ -70,12 +70,18 @@ const Messages = ({activeChannelId}) => {
           e.preventDefault();
           sendMessage();
         }}>
-          <Textarea autoFocus placeholder='Введите сообщение' value={value} onKeyPress={(e) => {
-            if (e.charCode === 13 && !e.shiftKey) {
-              e.preventDefault();
-              sendMessage();
-            }
-          }} onChange={(e) => setValue(e.target.value)}/>
+          <Textarea
+            autoFocus
+            placeholder='Введите сообщение'
+            value={value}
+            onKeyPress={(e) => {
+              if (e.charCode === 13 && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+             }
+            }}
+            onChange={(e) => setValue(e.target.value)}
+          />
           <Button type='submit' size='sm' absolute><Icon icon='ArrowRight'/></Button>
         </Form>
       </div>
@@ -84,3 +90,4 @@ const Messages = ({activeChannelId}) => {
 };
 
 export default Messages;
+// TODO: чтобы переход осуществлялся по tab в попап и после добавления канала в сообщение

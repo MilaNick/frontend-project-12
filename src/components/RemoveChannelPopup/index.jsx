@@ -3,24 +3,20 @@ import {socket} from 'index';
 import Button from 'ui/Button';
 import Popup from 'ui/Popup';
 
-const RemoveChannelPopup = ({id, shown, setShown}) => {
+const RemoveChannelPopup = ({id, close}) => {
 
-  const deleteChannel = () => {
-    setShown(true);
-    socket.emit('removeChannel', {id});
-    closePopup();
+  const handleRemove = () => {
+    socket.emit('removeChannel', {id}, () => {
+      close();
+    });
   }
 
-  const closePopup = () => {
-    setShown(false)
-  };
-
   return (
-    <Popup shown={shown} close={closePopup} title='Удалить канал'>
+    <Popup shown title='Удалить канал'>
       <div className='wrapper'>
-        <div>Вы уверены?</div>
-        <Button size='lg' top='lg' left onClick={closePopup}>Отменить</Button>
-        <Button type='submit' size='lg' top='lg' left onClick={() => deleteChannel(id)}>Удалить</Button>
+        <div className='popup__text'>Вы уверены?</div>
+        <Button size='lg' top='lg' left onClick={close}>Отменить</Button>
+        <Button size='lg' top='lg' left onClick={handleRemove}>Удалить</Button>
       </div>
     </Popup>
   )

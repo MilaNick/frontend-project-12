@@ -8,7 +8,7 @@ import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
 
-const CreateChannelPopup = ({channels, shown, setShown, onAddChannel}) => {
+const CreateChannelPopup = ({channels, setShown, onAddChannel}) => {
   const [newChannel, setNewChannel] = useState('');
   const [error, setError] = useState('');
 
@@ -43,9 +43,9 @@ const CreateChannelPopup = ({channels, shown, setShown, onAddChannel}) => {
   };
 
   return (
-    <Popup shown={shown} close={closePopup} title='Добавить канал'>
+    <Popup close={closePopup} title='Добавить канал'>
       <Form onSubmit={addChannel}>
-        <Input value={newChannel} onChange={handleChange}/>
+        <Input autoFocus value={newChannel} onChange={handleChange}/>
         {error && <Report type='error'>{error}</Report>}
         <div className='wrapper'>
           <Button size='lg' top='lg' left onClick={closePopup}>Отменить</Button>
@@ -57,3 +57,4 @@ const CreateChannelPopup = ({channels, shown, setShown, onAddChannel}) => {
 }
 
 export default CreateChannelPopup;
+

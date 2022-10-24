@@ -32,5 +32,13 @@
     pointer-events: all;
     transform: scale(1);
   }
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h3 {
+    display: inline-flex;
+  }
 
 }

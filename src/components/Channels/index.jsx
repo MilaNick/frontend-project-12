@@ -23,16 +23,12 @@ const Channels = ({activeChannelId}) => {
       }
     }
   }, [channels, justCreatedChannelName])
-  const handleClick = () => {
-    setShown(true);
-    // name.focus();
-  }
 
   return (
     <div className='main-channels'>
       <div className='main-channels__wrap'>
         <h3 className='main-channels__title'>Каналы</h3>
-        <Button size='sm' onClick={handleClick}><Icon icon='Plus'/></Button>
+        <Button size='sm' onClick={() => setShown(true)}><Icon icon='Plus'/></Button>
         {shown && <CreateChannelPopup onAddChannel={setJustCreatedChannelName} channels={channels} setShown={setShown}/>}
       </div>
       <ul className='main-channels__names'>

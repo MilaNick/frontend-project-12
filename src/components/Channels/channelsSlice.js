@@ -13,10 +13,12 @@ const channelsSlice = createSlice({
       const {id, name, removable} = payload;
       state.channels.push({id, name, removable});
     },
-    removeChannel(state, { payload: removeId }) {
+    removeChannel(state, {payload: removeId}) {
+      console.log('state.channels', JSON.stringify(state.channels, null, 4))
+      console.log('removeId', removeId)
       state.channels = state.channels.filter(({id}) => id !== removeId)
     },
-    renameChannel(state, { payload }) {
+    renameChannel(state, {payload}) {
       state.channels.map(channel => channel.name = payload.name)
     },
   }

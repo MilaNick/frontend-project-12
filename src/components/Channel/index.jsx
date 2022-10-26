@@ -38,7 +38,7 @@ const Channel = ({id, name, isActive, removable}) => {
           {shownDropdown && (
             <div className={dropdown}>
               <span className='channel__drop-down--click' onClick={() => deleteChannel()}>Удалить</span>
-              {/*<span className='channel__drop-down--click' onClick={renameChannel}>Переименовать</span>*/}
+              <span className='channel__drop-down--click' onClick={() => {}}>Переименовать</span>
             </div>
           )}
         </Button>}

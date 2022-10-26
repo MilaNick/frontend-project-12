@@ -16,8 +16,8 @@ const channelsSlice = createSlice({
     removeChannel(state, {payload: removeId}) {
       state.channels = state.channels.filter(({id}) => id !== removeId)
     },
-    renameChannel(state, {payload}) {
-      state.channels.map(channel => channel.name = payload.name)
+    renameChannel(state, {id}) {
+      state.channels.find(channel => channel.id = id)
     },
   }
 })

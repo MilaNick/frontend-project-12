@@ -8,24 +8,52 @@ import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
 
-const RenameChannelPopup = ({channels, setShown, onAddChannel}) => {
 
-  const closePopup = () => {
-    setShown(false)
-  }
+const RenameChannelPopup = ({channels, id, onRenameChannel}) => {
+    const [newNameChannel, setNewNameChannel] = useState('');
+    const [error, setError] = useState('');
 
-  return (
-    <Popup close={closePopup} title='Добавить канал'>
-      <Form onSubmit={}>
-        <Input value={} onChange={}/>
-        {error && <Report type='error'>{error}</Report>}
-        <div className='wrapper'>
-          <Button size='lg' top='lg' left onClick={closePopup}>Отменить</Button>
-          <Button type='submit' size='lg' top='lg' left>Отправить</Button>
-        </div>
-      </Form>
-    </Popup>
-  )
+    const renameChannel = (e) => {
+        e.preventDefault();
+        if (channels.find(channel => channel.name.toLowerCase() === newNameChannel.toLowerCase())) {
+            setError('Канал с таким названием уже есть')
+            return;
+        }
+        setError('');
+        if (newNameChannel) {
+            socket.emit('renameChannel', {id, name: newNameChannel}, (response) => {
+                console.log(response.status);
+                close();
+            })
+            onRenameChannel(newNameChannel);
+            setNewNameChannel('')
+        } else {
+            setError('Введите имя канала')
+        }
+    };
+
+    const close = () => {
+        setNewNameChannel('');
+        setError('')
+    };
+
+    const handleChange = (e) => {
+        setNewNameChannel(e.target.value);
+        setError('')
+    };
+
+    return (
+        <Popup close={close} title='Переименовать канал'>
+            <Form onSubmit={renameChannel}>
+                <Input autoFocus value={newNameChannel} onChange={handleChange}/>
+                {error && <Report type='error'>{error}</Report>}
+                <div className='wrapper'>
+                    <Button size='lg' top='lg' left onClick={close}>Отменить</Button>
+                    <Button type='submit' size='lg' top='lg' left>Переименовать</Button>
+                </div>
+            </Form>
+        </Popup>
+    )
 }
 
 export default RenameChannelPopup;

@@ -12,8 +12,9 @@ import './index.scss';
 const Channels = ({activeChannelId}) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
   const [shown, setShown] = useState(false);
+  const [justCreatedChannelName, setJustCreatedChannelName] = useState(null);
   const navigate = useNavigate();
-  const [justCreatedChannelName, setJustCreatedChannelName] = useState(null)
+
   useEffect(() => {
     if(justCreatedChannelName) {
       const justCreatedChannel = channels.find(channel => channel.name === justCreatedChannelName)

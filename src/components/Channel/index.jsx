@@ -7,7 +7,7 @@ import Icon from 'ui/Icon';
 import RemoveChannelPopup from 'components/RemoveChannelPopup';
 
 import './index.scss';
-import DropdownMenu from "../DropdownMenu";
+import DropdownMenu from "../../ui/DropdownMenu";
 
 const Channel = ({id, name, isActive, removable}) => {
   const [shownDropdown, setShownDropdown] = useState(false);

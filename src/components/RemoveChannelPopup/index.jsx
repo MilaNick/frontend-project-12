@@ -2,11 +2,9 @@ import {socket} from 'index';
 
 import Button from 'ui/Button';
 import Popup from 'ui/Popup';
-import {useSelector} from 'react-redux';
+
 
 const RemoveChannelPopup = ({id, close}) => {
-  const messages = useSelector((state) => state.messagesReducer.messages);
-  {console.log('messages>>>', messages)}
   const handleRemove = () => {
     socket.emit('removeChannel', {id}, () => {
       close();

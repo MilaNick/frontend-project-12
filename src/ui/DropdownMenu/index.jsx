@@ -11,6 +11,7 @@ const DropdownMenu = (props) => {
             maxWidth={180}
             placement='right-start'
             arrow={false}
+            zIndex={5}
             offset={[0, 1]}
             className='dropdown-menu'
             content={

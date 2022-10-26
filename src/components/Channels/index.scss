@@ -3,9 +3,9 @@
 .main-channels {
   width: 20%;
   padding: 3rem;
-  //-ms-overflow-y: scroll;
-  //overflow-y: scroll;
-
+  -ms-overflow-y: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   &__wrap {
     display: flex;
     justify-content: space-between;

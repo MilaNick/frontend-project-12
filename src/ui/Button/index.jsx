@@ -1,9 +1,10 @@
 import cn from 'classnames';
+import {forwardRef} from 'react';
 import {Link} from 'react-router-dom';
 
 import './index.scss';
 
-const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, light, top, left, relative, absolute}) => {
+const Button = ({children, type = 'button', className = '', href = '', onClick, fluid = false, size, light, top, left, relative, absolute}, forwardedRef) => {
   const classes = cn({
     btn: true,
     [className]: Boolean(className),
@@ -17,12 +18,12 @@ const Button = ({children, type = 'button', className = '', href = '', onClick, 
   })
 
   if (href) {
-    return <Link to={href} type={type} className={classes}>{children}</Link>
+    return <Link ref={forwardedRef}  to={href} type={type} className={classes}>{children}</Link>
   }
 
   return(
-    <button onClick={onClick} type={type} className={classes}>{children}</button>
+    <button ref={forwardedRef} onClick={onClick} type={type} className={classes}>{children}</button>
   )
 }
 
-export default Button;
+export default forwardRef(Button);

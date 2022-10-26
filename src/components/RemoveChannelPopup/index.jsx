@@ -14,7 +14,7 @@ const RemoveChannelPopup = ({id, close}) => {
   }
 
   return (
-    <Popup shown title='Удалить канал'>
+    <Popup title='Удалить канал' close={close}>
       <div className='wrapper'>
         <div className='popup__text'>Вы уверены?</div>
         <Button size='lg' top='lg' left onClick={close}>Отменить</Button>

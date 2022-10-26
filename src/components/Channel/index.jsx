@@ -7,6 +7,7 @@ import Icon from 'ui/Icon';
 import RemoveChannelPopup from 'components/RemoveChannelPopup';
 
 import './index.scss';
+import DropdownMenu from "../DropdownMenu";
 
 const Channel = ({id, name, isActive, removable}) => {
   const [shownDropdown, setShownDropdown] = useState(false);
@@ -34,14 +35,9 @@ const Channel = ({id, name, isActive, removable}) => {
   return (
       <li className={classes}>
         <Link className='channel-item__link' to={`/chats/${id}`}>#&nbsp;{name}</Link>
-        {removable && <Button size='sm' relative onClick={handleClick}><Icon icon='ArrowDown'/>
-          {shownDropdown && (
-            <div className={dropdown}>
-              <span className='channel__drop-down--click' onClick={() => deleteChannel()}>Удалить</span>
-              <span className='channel__drop-down--click' onClick={() => {}}>Переименовать</span>
-            </div>
-          )}
-        </Button>}
+        {removable && (
+            <DropdownMenu />
+        )}
         {shownRemovePopup &&  <RemoveChannelPopup id={id} close={() => setShownRemovePopup(false)}/>}
       </li>
   )
@@ -49,3 +45,11 @@ const Channel = ({id, name, isActive, removable}) => {
 
 export default Channel;
 // TODO: пофиксить конфликт скролла с выпадающим меню, выпадающее меню реализовать через tippy закрыть меню при потере фокуса
+// <Button size='sm' relative onClick={handleClick}><Icon icon='ArrowDown'/>
+//   {shownDropdown && (
+//       <div className={dropdown}>
+//         <span className='channel__drop-down--click' onClick={() => deleteChannel()}>Удалить</span>
+//         <span className='channel__drop-down--click' onClick={() => {}}>Переименовать</span>
+//       </div>
+//   )}
+// </Button>

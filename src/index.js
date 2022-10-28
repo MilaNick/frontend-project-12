@@ -25,8 +25,12 @@ socket.on('newChannel', ({id, name, removable}) => {
 socket.on('removeChannel', ({id}) => {
   store.dispatch(removeChannel(id))
 });
-socket.on('renameChannel', ({id, name, removable}) => {
-  store.dispatch(renameChannel({id, name, removable}))
+socket.on('renameChannel', ({id, name}) => {
+    const payload = {
+        id,
+        name,
+    }
+  store.dispatch(renameChannel(payload))
 });
 
 root.render(

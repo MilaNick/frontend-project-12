@@ -9,7 +9,7 @@ import Input from 'ui/Input';
 import Popup from 'ui/Popup';
 
 
-const RenameChannelPopup = ({channels, id, onRenameChannel}) => {
+const RenameChannelPopup = ({channels, id, close}) => {
     const [newNameChannel, setNewNameChannel] = useState('');
     const [error, setError] = useState('');
 
@@ -25,16 +25,10 @@ const RenameChannelPopup = ({channels, id, onRenameChannel}) => {
                 console.log(response.status);
                 close();
             })
-            onRenameChannel(newNameChannel);
             setNewNameChannel('')
         } else {
             setError('Введите имя канала')
         }
-    };
-
-    const close = () => {
-        setNewNameChannel('');
-        setError('')
     };
 
     const handleChange = (e) => {

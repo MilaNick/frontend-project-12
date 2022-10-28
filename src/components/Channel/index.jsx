@@ -1,7 +1,7 @@
 import cn from 'classnames';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {useSelector} from 'react-redux';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import RemoveChannelPopup from 'components/RemoveChannelPopup';
 import RenameChannelPopup from 'components/RenameChannelPopup';
@@ -15,24 +15,6 @@ const Channel = ({id, name, isActive, removable}) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
   const [shownRemovePopup, setShownRemovePopup] = useState(false);
   const [shownRenamePopup, setShownRenamePopup] = useState(false);
-  const [justRenamedChannel, setJustRenamedChannel] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if(justRenamedChannel) {
-      const renamedChannel = channels.find(channel => {
-        console.log('channel.name', channel.name)
-        // console.log('justRenamedChannel', justRenamedChannel)
-        // console.log('channel.name === justRenamedChannel', channel.name === justRenamedChannel)
-        return channel.name === justRenamedChannel
-      })
-      console.log('renamedChannel', renamedChannel)
-      if (renamedChannel) {
-        navigate(`/chats/${renamedChannel.id}`)
-        setJustRenamedChannel(null)
-      }
-    }
-  }, [channels, justRenamedChannel])
 
   const classes = cn({
     'channel-item': true,
@@ -63,7 +45,7 @@ const Channel = ({id, name, isActive, removable}) => {
               <Button size='sm' ><Icon icon='ArrowDown'/></Button>
             </DropdownMenu>)}
         {shownRemovePopup &&  <RemoveChannelPopup id={id} close={() => setShownRemovePopup(false)}/>}
-        {shownRenamePopup &&  <RenameChannelPopup onRenameChannel={setJustRenamedChannel} channels={channels} id={id} close={() => setShownRenamePopup(false)}/>}
+        {shownRenamePopup &&  <RenameChannelPopup channels={channels} id={id} close={() => setShownRenamePopup(false)}/>}
       </li>
   )
 };

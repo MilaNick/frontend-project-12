@@ -26,9 +26,7 @@ const Chats = () => {
   useEffect(() => {
     if (isReady) {
       const isChannelExisted = channels.some(channel => channel.id === channelId);
-      console.log('channels', channels)
       if (!isChannelExisted && channels.length > 0) {
-        console.log('channels[0].id', channels[0].id)
         navigate(`/chats/${channels[0].id}`);
       }
     }

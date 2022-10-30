@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {useContext, useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom';
 
@@ -20,11 +21,14 @@ const Chats = () => {
   const channelId = params.channelId ? Number(params.channelId) : null;
   const navigate = useNavigate();
   const [isReady, setIsReady] = useState(false);
+  const {t} = useTranslation();
 
   useEffect(() => {
     if (isReady) {
       const isChannelExisted = channels.some(channel => channel.id === channelId);
+      console.log('channels', channels)
       if (!isChannelExisted && channels.length > 0) {
+        console.log('channels[0].id', channels[0].id)
         navigate(`/chats/${channels[0].id}`);
       }
     }
@@ -47,7 +51,7 @@ const Chats = () => {
         dispatch(messages);
         setIsReady(true);
       }).catch((e) => {
-        console.log('Перезагрузите страницу, ошибка:', e)
+        console.log(t('reboot'), e)
       })
     }
   }, [])

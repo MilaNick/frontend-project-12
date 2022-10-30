@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import {useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -15,6 +16,7 @@ const Channel = ({id, name, isActive, removable}) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
   const [shownRemovePopup, setShownRemovePopup] = useState(false);
   const [shownRenamePopup, setShownRenamePopup] = useState(false);
+  const {t} = useTranslation();
 
   const classes = cn({
     'channel-item': true,
@@ -34,11 +36,11 @@ const Channel = ({id, name, isActive, removable}) => {
         {removable && (
             <DropdownMenu items={[
               {
-                label: 'Удалить',
+                label: t('remove'),
                 onClick: () => deleteChannel(),
               },
               {
-                label: 'Переименовать',
+                label: t('rename'),
                 onClick: () => renameChannel(),
               }
             ]}>

@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {useTranslation} from 'react-i18next';
 
 import {socket} from 'index';
 
@@ -12,11 +13,12 @@ import Popup from 'ui/Popup';
 const RenameChannelPopup = ({channels, id, close}) => {
     const [newNameChannel, setNewNameChannel] = useState('');
     const [error, setError] = useState('');
+    const {t} = useTranslation();
 
     const renameChannel = (e) => {
         e.preventDefault();
         if (channels.find(channel => channel.name.toLowerCase() === newNameChannel.toLowerCase())) {
-            setError('Канал с таким названием уже есть')
+            setError(t('Not unique name'))
             return;
         }
         setError('');
@@ -27,7 +29,7 @@ const RenameChannelPopup = ({channels, id, close}) => {
             })
             setNewNameChannel('')
         } else {
-            setError('Введите имя канала')
+            setError(t('Enter the channel name'))
         }
     };
 
@@ -37,13 +39,13 @@ const RenameChannelPopup = ({channels, id, close}) => {
     };
 
     return (
-        <Popup close={close} title='Переименовать канал'>
+        <Popup close={close} title={t('Rename channel')}>
             <Form onSubmit={renameChannel}>
                 <Input autoFocus value={newNameChannel} onChange={handleChange}/>
                 {error && <Report type='error'>{error}</Report>}
                 <div className='wrapper'>
-                    <Button size='lg' top='lg' left onClick={close}>Отменить</Button>
-                    <Button type='submit' size='lg' top='lg' left>Переименовать</Button>
+                    <Button size='lg' top='lg' left onClick={close}>{t('cansel')}</Button>
+                    <Button type='submit' size='lg' top='lg' left>{t('rename')}</Button>
                 </div>
             </Form>
         </Popup>

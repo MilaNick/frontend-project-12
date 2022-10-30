@@ -1,7 +1,34 @@
 export default {
-  translation: {
-    messages: {
-      'Request failed with status code 401': 'Такого пользователя не существует, введите правильный логин/пароль или зарегистрируйтесь',
+    translation: {
+        '404': 'Такой страницы нет!',
+        'Add channel': 'Добавить канал',
+        'Are you sure?': 'Вы уверены?',
+        cansel: 'Отменить',
+        enter: 'Входи',
+        exit: 'Выйти',
+        'Enter message': 'Введите сообщение',
+        'Enter the channel name': 'Введите имя канала',
+        username: 'Ваш ник',
+        'Have an account?':'Есть аккаунт?',
+        login: 'Войти',
+        'Maximum number of characters': 'Максимум 20 символов',
+        'Minimum number of characters': 'Минимум 3 символа',
+        'No account?': 'Нет аккаунта?',
+        'Not unique name': 'Канал с таким названием уже есть',
+        password: 'Пароль',
+        'Passwords don\'t match': 'Пароли не совпадают',
+        'Password requirements': 'Требуются строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 6 символов',
+        reboot: 'Перезагрузите страницу, ошибка: ',
+        'Remove channel': 'Удалить канал',
+        remove: 'Удалить',
+        rename: 'Переименовать',
+        'Rename channel': 'Переименовать канал',
+        'Repeat password': 'Повторите пароль',
+        'Request failed with status code 401': 'Такого пользователя не существует, введите правильный логин/пароль или зарегистрируйтесь',
+        required: 'Обязательное поле',
+        send: 'Отправить',
+        signup: 'Зарегистрироваться',
+        registration: 'Регистрация',
+
     },
-  },
-};
+}

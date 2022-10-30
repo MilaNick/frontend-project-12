@@ -1,10 +1,13 @@
+import {useTranslation} from 'react-i18next';
+
 import {socket} from 'index';
 
 import Button from 'ui/Button';
 import Popup from 'ui/Popup';
 
-
 const RemoveChannelPopup = ({id, close}) => {
+  const {t} = useTranslation();
+
   const handleRemove = () => {
     socket.emit('removeChannel', {id}, () => {
       close();
@@ -12,11 +15,11 @@ const RemoveChannelPopup = ({id, close}) => {
   }
 
   return (
-    <Popup title='Удалить канал' close={close}>
+    <Popup title={t('Remove channel')} close={close}>
       <div className='wrapper'>
-        <div className='popup__text'>Вы уверены?</div>
-        <Button size='lg' top='lg' left onClick={close}>Отменить</Button>
-        <Button size='lg' top='lg' left onClick={handleRemove}>Удалить</Button>
+        <div className='popup__text'>{t('Are you sure?')}</div>
+        <Button size='lg' top='lg' left onClick={close}>{t('cansel')}</Button>
+        <Button size='lg' top='lg' left onClick={handleRemove}>{t('remove')}</Button>
       </div>
     </Popup>
   )

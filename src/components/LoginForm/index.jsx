@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {useContext, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import * as Yup from 'yup';
 
 import {AuthContext} from 'App';
@@ -8,17 +9,19 @@ import EntryForm from 'components/EntryForm';
 const LoginForm = () => {
   const [errorReport, setErrorReport] = useState('');
   const {setAuth} = useContext(AuthContext);
+  const {t} = useTranslation();
+
   const config = [
     {
       name: 'name',
-      placeholder: 'Ваш ник',
-      schema: Yup.string().min(3, 'Минимум 3 символа').required('Обязательное поле')
+      placeholder: t('username'),
+      schema: Yup.string().min(3, t('Minimum number of characters')).required(t('required'))
     },
     {
       name: 'password',
-      placeholder: 'Пароль',
+      placeholder: t('password'),
       type: 'password',
-      schema: Yup.string().required('Обязательное поле')
+      schema: Yup.string().required(t('required'))
     }
   ];
 
@@ -38,8 +41,8 @@ const LoginForm = () => {
           setErrorReport(error.message)
         });
       }}
-      buttonText='Войти'
-      errorReport={errorReport}
+      buttonText={t('login')}
+      errorMessage={errorReport}
     />
   )
 }

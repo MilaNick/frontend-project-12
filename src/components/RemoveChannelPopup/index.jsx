@@ -9,7 +9,8 @@ const RemoveChannelPopup = ({id, close}) => {
   const {t} = useTranslation();
 
   const handleRemove = () => {
-    socket.emit('removeChannel', {id}, () => {
+    socket.emit('removeChannel', {id}, (response) => {
+      console.log(response.status)
       close();
     });
   }

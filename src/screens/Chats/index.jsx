@@ -49,7 +49,7 @@ const Chats = () => {
         dispatch(messages);
         setIsReady(true);
       }).catch((e) => {
-        console.log(t('reboot'), e)
+        console.log(t('reboot'), e.message)
       })
     }
   }, [])

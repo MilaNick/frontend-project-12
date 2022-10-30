@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 import {socket} from 'index';
 
@@ -13,6 +15,7 @@ const CreateChannelPopup = ({channels, setShown, onAddChannel}) => {
     const [newChannel, setNewChannel] = useState('');
     const [error, setError] = useState('');
     const {t} = useTranslation();
+    // const notify = toast(t('Channel added'));
 
     const addChannel = (e) => {
         e.preventDefault();
@@ -23,7 +26,7 @@ const CreateChannelPopup = ({channels, setShown, onAddChannel}) => {
         setError('')
         if (newChannel) {
             socket.emit('newChannel', {name: newChannel}, (response) => {
-                console.log(response.status); // TODO как обработать этот статус, куда вывести?
+                console.log(response.status)
             })
             onAddChannel(newChannel);
             setNewChannel('');
@@ -52,6 +55,7 @@ const CreateChannelPopup = ({channels, setShown, onAddChannel}) => {
                 <div className='wrapper'>
                     <Button size='lg' top='lg' left onClick={closePopup}>{t('cansel')}</Button>
                     <Button type='submit' size='lg' top='lg' left>{t('send')}</Button>
+
                 </div>
             </Form>
         </Popup>

@@ -4,6 +4,7 @@ export default {
         'Add channel': 'Добавить канал',
         'Are you sure?': 'Вы уверены?',
         cansel: 'Отменить',
+        'Channel added': 'Канал добавлен',
         enter: 'Входи',
         exit: 'Выйти',
         'Enter message': 'Введите сообщение',

@@ -4,6 +4,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import {AuthContext} from 'App';
+import {clean} from 'utils/profanity';
 
 import './index.scss';
 
@@ -43,7 +44,7 @@ const Message = ({body, username, date}, ref) => {
           </span>
         </Tippy>
       }</div>
-      <div className='message__text'>{body}</div>
+      <div className='message__text'>{clean(body)}</div>
     </div>
   )
 };

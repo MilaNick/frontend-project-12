@@ -38,6 +38,7 @@ function App() {
     setAuth(null);
     navigate('/login');
   }
+
   return (
     <AuthContext.Provider value={{auth, setAuth, logout}}>
       <Routes>

@@ -31,10 +31,12 @@ export default {
         'Rename channel': 'Переименовать канал',
         'Repeat password': 'Повторите пароль',
         'Request failed with status code 401': 'Такого пользователя не существует, введите правильный логин/пароль или зарегистрируйтесь',
+        registration: 'Регистрация',
         required: 'Обязательное поле',
         send: 'Отправить',
         signup: 'Зарегистрироваться',
-        registration: 'Регистрация',
+        'The channel name cannot contain profanity': 'Название канала не может содержать ненормативную лексику',
+
 
     },
 }

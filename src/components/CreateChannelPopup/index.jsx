@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {socket} from 'index';
 
 import Report from 'components/Report';
+import {check} from 'utils/profanity';
 import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
@@ -36,7 +37,15 @@ const CreateChannelPopup = ({channels, setShown, onAddChannel}) => {
             notifyError(e, t('Not unique name'));
             return;
         }
+
+        if (check(newChannel)){
+            setError(t('The channel name cannot contain profanity'));
+            notifyError(e, t('The channel name cannot contain profanity'));
+            return;
+        }
+
         setError('')
+
         if (newChannel) {
             socket.emit('newChannel', {name: newChannel}, () => {
                 notify(e);

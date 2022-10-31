@@ -57,7 +57,7 @@ const SignupForm = () => {
           }, 500)
         }).catch((error) => {
           setErrorReport(error.message)
-        })
+        });
       }}
       buttonText={t('signup')}
       errorMessage={errorReport}

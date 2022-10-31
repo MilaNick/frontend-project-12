@@ -49,12 +49,21 @@ const Messages = ({activeChannelId}) => {
         });
         setValue('');
     }
+    const messageСounter = () => {
+        if (messages.length === 1) {
+            return `${messages.length} ${t('messages for 1')}`
+        } else if (messages.length > 1 && messages.length < 5) {
+            return `${messages.length} ${t('messages for 2-4')}`
+        } else {
+            return `${messages.length} ${t('messages')}`
+        }
+    }
 
     return (
         <div className='main-message'>
             <div className='main-message__header'>
                 <h3 className='main-message__title'>{channel.name}</h3>
-                <div className='main-message__count'>{messages.length} сообщений</div>
+                <div className='main-message__count'>{messageСounter()}</div>
             </div>
             <div className='main-message__container'>
                 {messages.map(({id, body, username, date}, index) => {

@@ -1,5 +1,6 @@
 import {createContext, useState} from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 
 import Chats from 'screens/Chats';
 import Login from 'screens/Login';
@@ -49,6 +50,7 @@ function App() {
                 element={(
                   <ProtectedRoute accessLevel={accessLevel}>
                     <Component/>
+                    <ToastContainer/>
                   </ProtectedRoute>
                 )}
               />

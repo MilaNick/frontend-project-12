@@ -63,8 +63,8 @@ div {
 }
 
 .shadow {
-  border: 1px solid rgba(0,0,0,.07);
-  box-shadow: 0 2px 2px rgba(0,0,0,.075);
+  border: 1px solid rgba(0, 0, 0, .07);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .075);
 }
 
 /* W3C standard
@@ -79,9 +79,11 @@ div {
   height: 12px;
   width: 12px;
 }
+
 *::-webkit-scrollbar-track {
   background: $bg-primary;
 }
+
 *::-webkit-scrollbar-thumb {
   background-color: $light-blue-10;
   border-radius: 5px;
@@ -90,15 +92,34 @@ div {
 
 .tippy {
   word-break: break-word;
+
   &-box {
     width: 80vw;
     background: $font-base;
   }
+
   &-arrow {
     color: $font-base;
   }
 }
 
+.Toastify {
+  &__toast {
+    background: $bg-secondary;
+  }
+
+  &__progress-bar--info {
+    background: linear-gradient(to right,
+            $light-blue,
+            $light-blue-77,
+            $light-blue-10);
+  }
+  &__progress-bar--error {
+    background: linear-gradient(to right,
+            $saffron,
+            $salmon-pink);
+  }
+}
 //---------------***---------------
 .container {
   display: flex;

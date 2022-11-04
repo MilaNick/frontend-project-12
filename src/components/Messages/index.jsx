@@ -2,7 +2,7 @@ import {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 
-import {socket} from 'index';
+import {socket} from 'utils/init';
 
 import {AuthContext} from 'App';
 import Message from 'components/Message';

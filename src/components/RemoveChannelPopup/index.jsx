@@ -2,7 +2,7 @@ import {useTranslation} from 'react-i18next';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import {socket} from 'index';
+import {socket} from 'utils/init';
 
 import Button from 'ui/Button';
 import Popup from 'ui/Popup';

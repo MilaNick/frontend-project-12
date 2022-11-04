@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import {I18nextProvider} from 'react-i18next';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import {Provider as ProviderRollbar, ErrorBoundary} from '@rollbar/react';
+import {Provider as RollbarProvider, ErrorBoundary, LEVEL_WARN} from '@rollbar/react';
 
 import i18n from 'i18n';
 import store from 'store/store';
@@ -19,15 +19,15 @@ const root = createRoot(container);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <ProviderRollbar config={rollbarConfig}>
-                <ErrorBoundary fallbackUI={ErrorDisplay}>
+            <RollbarProvider config={rollbarConfig}>
+                <ErrorBoundary level={LEVEL_WARN}  fallbackUI={ErrorDisplay}>
                     <I18nextProvider i18n={i18n}>
                         <BrowserRouter>
                             <App/>
                         </BrowserRouter>
                     </I18nextProvider>
                 </ErrorBoundary>
-            </ProviderRollbar>
+            </RollbarProvider>
         </Provider>
     </React.StrictMode>
 );

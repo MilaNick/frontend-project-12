@@ -32,9 +32,11 @@ export default {
         'Repeat password': 'Повторите пароль',
         'Request failed with status code 401': 'Введите правильный логин/пароль или зарегистрируйтесь',
         registration: 'Регистрация',
+        reset: 'Сброс',
         required: 'Обязательное поле',
         send: 'Отправить',
         signup: 'Зарегистрироваться',
+        'Something went wrong...': 'Что то пошло не так',
         'The channel name cannot contain profanity': 'Название канала не может содержать ненормативную лексику',
 
 

@@ -79,6 +79,7 @@ const Messages = ({activeChannelId}) => {
                 <Form className='form' onSubmit={(e) => {
                     e.preventDefault();
                     sendMessage();
+                    // throw new Error('ошибочка вышла!')
                 }}>
                     <Textarea
                         autoFocus

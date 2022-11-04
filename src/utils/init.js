@@ -1,9 +1,12 @@
+// import {useTranslation} from 'react-i18next';
+
 import {io} from 'socket.io-client';
 import store from 'store/store';
 
 import {addChannel, removeChannel, renameChannel} from 'components/Channels/channelsSlice';
 import {addMessage} from 'components/Messages/messagesSlice';
 
+// const {t} = useTranslation();
 const socket = io();
 
 socket.on('newMessage', ({body, channelId, id, username}) => {
@@ -28,9 +31,15 @@ const rollbarConfig = {
     },
 }
 
-const ErrorDisplay = ({ error, resetError }) => {
-    console.log(error);
-    resetError();
+const ErrorDisplay = ({error, resetError}) => {
+    return (
+        <div>
+            Что то пошло не так... : {error.message}
+            <br/>
+            <button onClick={() => resetError()}>Сброс</button>
+        </div>
+    )
+
 }
 
 export {socket, rollbarConfig, ErrorDisplay};

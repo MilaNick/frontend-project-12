@@ -6,7 +6,7 @@
 ## 💬 Chat [here](https://milachat.herokuapp.com/)  
 
 <div class='main'>
-    <img src='./src/assets/images/chat.jpg' alt='' height='200'/><img src='./src/assets/images/chat_1.jpg' alt='' height='200'/>
+    <img class='readme' src='./src/assets/images/chat.jpg' alt='' height='200'/><img class='readme' src='./src/assets/images/chat_1.jpg' alt='' height='200'/>
 </div>
 
 ### Overview

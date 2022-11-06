@@ -31,12 +31,10 @@ const LoginForm = () => {
       onSubmit={({name, password}) => {
         setErrorReport('');
         axios.post('/api/v1/login', {username: name, password: password}).then((response) => {
-          setTimeout(() => {
-            const { token, username} = response.data;
-            localStorage.setItem('token', token);
-            localStorage.setItem('username', username);
-            setAuth({token, username})
-          }, 500)
+          const { token, username} = response.data;
+          localStorage.setItem('token', token);
+          localStorage.setItem('username', username);
+          setAuth({token, username})
         }).catch((error) => {
           setErrorReport(error.message)
         });

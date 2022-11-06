@@ -5,8 +5,8 @@
 
 ## 💬 Chat [here](https://milachat.herokuapp.com/)  
 
-![chat](./src/assets/images/chat.jpg)
-![chat](./src/assets/images/chat_1.jpg)
+<img src='./src/assets/images/chat.jpg' alt='' height='200'/>
+<img src='./src/assets/images/chat_1.jpg' alt='' height='200'/>
 
 ### Overview
 Chat is a simple real-time chat application.  

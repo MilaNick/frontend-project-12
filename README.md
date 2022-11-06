@@ -3,22 +3,23 @@
 [![Actions Status](https://github.com/MilaNick/frontend-project-12/workflows/hexlet-check/badge.svg)](https://github.com/MilaNick/frontend-project-12/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/380c1b7806a4bcad9861/maintainability)](https://codeclimate.com/github/MilaNick/frontend-project-12/maintainability)
 
-## 💬 📝 Chat [here](https://milachat.herokuapp.com/)
+## 💬 Chat [here](https://milachat.herokuapp.com/)  
 
-### step 11
-Любой, даже покрытый тестами код содержит баги. Значительная часть этих багов проявляется только в продакшен среде у
-реальных пользователей. Некоторые пользователи сообщат об ошибках с которыми они сталкиваются, но большинство молча
-уйдет с сервиса с осадком о "глючности". Все это приводит к потере клиентов и росту негатива по отношению к сервису.
-✔ ➖
-Чтобы избежать этого, нужно как можно раньше узнавать о проблемах. Для этого используются специальные сервисы,
-коллекторы ошибок. Они подключаются к приложению через свои библиотеки и отслеживают возникающие ошибки. Затем
-информация об ошибках отправляется в сервис, а программистам уходит оповещение. Это позволяет быстро отреагировать и
-поправить серьезные ошибки.
+![chat](./src/assets/images/chat.jpg)
+![chat](./src/assets/images/chat_1.jpg)
 
-### Задачи
-- ➖ Создайте бесплатный аккаунт на сервисе Rollbar
-- ➖ Подключите Rollbar для React и задеплойте. Проверьте что ошибки доходят до сервиса.
+### Overview
+Chat is a simple real-time chat application.  
 
-#### Ссылки
-[Rollbar (react)](https://docs.rollbar.com/docs/react)
-[12factors](https://12factor.net/ru/)
+### Features
+Registration and authorization. The project has a small server that supports JWT technology.
+Create, rename and delete channels. These operations take place inside models.
+Create and receive messages. Implemented via websockets.
+All forms validation and error handling. Used by formik.
+
+### Tech Stack
+React with hooks, Redux Toolkit, socket.io, formik, i18next
+ESLint, Webpack v5, Heroku, Rollbar
+
+### By default available one user: 
+admin / admin

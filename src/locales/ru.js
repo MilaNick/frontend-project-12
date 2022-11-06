@@ -11,7 +11,7 @@ export default {
         exit: 'Выйти',
         'Enter message': 'Введите сообщение',
         'Enter the channel name': 'Введите имя канала',
-        username: 'Ваш ник',
+        username: 'Имя пользователя',
         'Have an account?':'Есть аккаунт?',
         login: 'Войти',
         'Maximum number of characters': 'Максимум 20 символов',

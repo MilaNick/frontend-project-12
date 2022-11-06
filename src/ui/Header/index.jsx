@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <header className='header'>
             <div className='logo'>
-                <Link to='/' className='logo__one'>Hexlet🚀Chat</Link>
+                <Link to='/' className='logo__one'>🚀 Hexlet Chat</Link>
             </div>
             {auth && <Button onClick={logout} size='md' top='sm'>{t('exit')}</Button>}
         </header>

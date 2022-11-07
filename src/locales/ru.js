@@ -11,7 +11,7 @@ export default {
         enter: 'Входи',
         exit: 'Выйти',
         'Enter message': 'Введите сообщение',
-        'Enter the channel name': 'Введите имя канала',
+        'Enter the channel name': 'Имя канала',
         'Username login': 'Ваш ник',
         'Username registration': 'Имя пользователя',
         'Have an account?':'Есть аккаунт?',

@@ -73,7 +73,7 @@ const CreateChannelPopup = ({channels, setShown, onAddChannel}) => {
     return (
         <Popup close={closePopup} title={t('Add channel')}>
             <Form onSubmit={addChannel}>
-                <Input autoFocus value={newChannel} onChange={handleChange}/>
+                <Input autoFocus name='new-channel' placeholder={t('Enter the channel name')} value={newChannel} onChange={handleChange}/>
                 {error && <Report type='error'>{error}</Report>}
                 <div className='wrapper'>
                     <Button size='lg' top='lg' left onClick={closePopup}>{t('cansel')}</Button>

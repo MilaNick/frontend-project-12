@@ -28,7 +28,7 @@ const SignupForm = () => {
       type: 'password',
       schema: Yup
           .string()
-          .matches(/(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, t('Password requirements'))
+          .min(6, t('Password - at least 6 characters'))
           .required(t('required')),
     },
     {

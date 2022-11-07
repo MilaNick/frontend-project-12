@@ -51,9 +51,9 @@ const Messages = ({activeChannelId}) => {
     }
     const messageСounter = () => {
         if (messages.length === 1) {
-            return `${messages.length} ${t('messages for 1')}`
+            return `${messages.length} ${t('Messages for 1')}`
         } else if (messages.length > 1 && messages.length < 5) {
-            return `${messages.length} ${t('messages for 2-4')}`
+            return `${messages.length} ${t('Messages for 2-4')}`
         } else {
             return `${messages.length} ${t('messages')}`
         }
@@ -83,6 +83,7 @@ const Messages = ({activeChannelId}) => {
                 }}>
                     <Textarea
                         autoFocus
+                        aria-label={t('New message')}
                         placeholder={t('Enter message')}
                         value={value}
                         onKeyPress={(e) => {

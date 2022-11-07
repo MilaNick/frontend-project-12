@@ -14,7 +14,7 @@ const SignupForm = () => {
   const config = [
     {
       name: 'name',
-      placeholder: t('username registration'),
+      placeholder: t('Username registration'),
       initialValue: '',
       schema: Yup
           .string()

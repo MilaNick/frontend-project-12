@@ -14,7 +14,7 @@ const LoginForm = () => {
   const config = [
     {
       name: 'name',
-      placeholder: t('username login'),
+      placeholder: t('Username login'),
       schema: Yup.string().min(3, t('Minimum number of characters')).required(t('required'))
     },
     {

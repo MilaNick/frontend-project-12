@@ -67,7 +67,7 @@ const RenameChannelPopup = ({channels, id, close}) => {
     return (
         <Popup close={close} title={t('Rename channel')}>
             <Form onSubmit={renameChannel}>
-                <Input autoFocus name='renameChannel' value={newNameChannel} onChange={handleChange}/>
+                <Input autoFocus name='renameChannel' placeholder={t('Enter the channel name')} value={newNameChannel} onChange={handleChange}/>
                 {error && <Report type='error'>{error}</Report>}
                 <div className='wrapper'>
                     <Button size='lg' top='lg' left onClick={close}>{t('cansel')}</Button>

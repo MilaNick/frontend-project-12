@@ -28,7 +28,7 @@ const RemoveChannelPopup = ({id, close}) => {
       <div className='wrapper'>
         <div className='popup__text'>{t('Are you sure?')}</div>
         <Button size='lg' top='lg' left onClick={close}>{t('cansel')}</Button>
-        <Button size='lg' top='lg' left onClick={handleRemove}>{t('remove')}</Button>
+        <Button className='btn-danger' size='lg' top='lg' left onClick={handleRemove}>{t('remove')}</Button>
       </div>
     </Popup>
   )

@@ -5,6 +5,7 @@ export default {
         'Are you sure?': 'Вы уверены?',
         cansel: 'Отменить',
         'Channel added': 'Канал создан',
+        'Channel management': 'Управление каналом',
         'Channel removed': 'Канал удалён',
         'Channel renamed': 'Канал переименован',
         'Connection error': 'Ошибка соединения',

@@ -18,7 +18,7 @@ const Message = ({body, username, date}, ref) => {
   });
 
   return (
-    <div className={classes} ref={ref}>
+    <div className={classes} ref={ref} aria-label='Новое сообщение'>
       <div className='message__username'>{username}
         {date &&
         <Tippy

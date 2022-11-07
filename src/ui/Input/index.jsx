@@ -11,15 +11,16 @@ const Input = (props) => {
   })
 
   return (
-    <label>
-        {nativeInputProps.placeholder && <span>{nativeInputProps.placeholder}</span>}
+    <>
+        {nativeInputProps.placeholder && <label htmlFor={`input-${nativeInputProps.name}`}>{nativeInputProps.placeholder}</label>}
         <input
         type={type}
+        id={`input-${nativeInputProps.name}`}
         className={classes}
         {...nativeInputProps}
       />
       {error && <Report type='error'>{error}</Report>}
-    </label>
+    </>
   )
 }
 

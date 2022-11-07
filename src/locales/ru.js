@@ -32,7 +32,7 @@ export default {
         rename: 'Переименовать',
         'Rename channel': 'Переименовать канал',
         'Repeat password': 'Подтвердите пароль',
-        'Request failed with status code 401': 'Введите правильный логин/пароль или зарегистрируйтесь',
+        'Request failed with status code 401': 'Неверные имя пользователя или пароль',
         registration: 'Регистрация',
         reset: 'Сброс',
         required: 'Обязательное поле',

@@ -1,15 +1,15 @@
 import cn from 'classnames';
-import {forwardRef, useContext} from 'react';
+import { forwardRef, useContext } from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import {AuthContext} from 'App';
-import {clean} from 'utils/profanity';
+import { AuthContext } from 'App';
+import { clean } from 'utils/profanity';
 
 import './index.scss';
 
-const Message = ({body, username, date}, ref) => {
-  const {auth} = useContext(AuthContext);
+const Message = ({ body, username, date }, ref) => {
+  const { auth } = useContext(AuthContext);
 
   const isAuthor = username === auth.username;
   const classes = cn({
@@ -18,7 +18,7 @@ const Message = ({body, username, date}, ref) => {
   });
 
   return (
-    <div className={classes} ref={ref} >
+    <div className={classes} ref={ref}>
       <div className='message__username'>{username}
         {date &&
         <Tippy
@@ -32,19 +32,20 @@ const Message = ({body, username, date}, ref) => {
               second: '2-digit',
               year: 'numeric',
               weekday: 'short',
-            }
+            },
           )}>
-          <span className='time'>
+          <span className="time">
             {(new Date(date)).toLocaleString('ru-RU', {
               hour12: false,
               hour: '2-digit',
               minute: '2-digit',
-            }
+            },
           )}
           </span>
         </Tippy>
-      }</div>
-      <div className='message__text'>{clean(body)}</div>
+      }
+      </div>
+      <div className="message__text">{clean(body)}</div>
     </div>
   )
 };

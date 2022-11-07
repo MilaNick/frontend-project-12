@@ -1,16 +1,16 @@
-import {useContext} from 'react';
+import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import {AuthContext} from 'App';
+import { AuthContext } from 'App';
 
 const ProtectedRoute = ({ children, accessLevel }) => {
-  const {auth} = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   if (accessLevel === 'auth' && !auth) {
-    return <Navigate to='/login' />;
+    return <Navigate to="/login" />;
   }
   if (accessLevel === 'no-auth' && auth) {
-    return <Navigate to='/chats' />;
+    return <Navigate to="/chats" />;
   }
   return children;
 };

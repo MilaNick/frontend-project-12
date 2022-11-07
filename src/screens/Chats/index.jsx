@@ -1,13 +1,13 @@
 import axios from 'axios';
-import {useContext, useEffect, useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigate, useParams} from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import {setChannels} from 'components/Channels/channelsSlice';
-import {setMessages} from 'components/Messages/messagesSlice';
+import { setChannels } from 'components/Channels/channelsSlice';
+import { setMessages } from 'components/Messages/messagesSlice';
 
-import {AuthContext} from 'App'; //TODO создать хук useAuth и вынести туда контекст
+import { AuthContext } from 'App';
 import Channels from 'components/Channels';
 import Messages from 'components/Messages';
 
@@ -15,13 +15,13 @@ import './index.scss';
 
 const Chats = () => {
   const channels = useSelector((state) => state.channelsReducer.channels);
-  const {auth} = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
   const dispatch = useDispatch();
   const params = useParams();
   const channelId = params.channelId ? Number(params.channelId) : null;
   const navigate = useNavigate();
   const [isReady, setIsReady] = useState(false);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isReady) {
@@ -49,23 +49,23 @@ const Chats = () => {
         dispatch(messages);
         setIsReady(true);
       }).catch((e) => {
-        console.log(t('reboot'), e.message)
-      })
+        console.log(t('reboot'), e.message);
+      });
     }
-  }, [])
+  }, []);
 
   return (
-    <div className='chat-container'>
-      <div className='main__wrap shadow'>
+    <div className="chat-container">
+      <div className="main__wrap shadow">
         {isReady && (
           <>
-            <Channels activeChannelId={channelId}/>
-            <Messages key={channelId} activeChannelId={channelId}/>
+            <Channels activeChannelId={channelId} />
+            <Messages key={channelId} activeChannelId={channelId} />
           </>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Chats;

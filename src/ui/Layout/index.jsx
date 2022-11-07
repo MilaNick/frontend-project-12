@@ -1,4 +1,4 @@
-import {Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import Header from 'ui/Header';
 import Footer from 'ui/Footer';
@@ -7,14 +7,14 @@ import './index.scss';
 
 const Layout = () => {
   return (
-    <div className='container'>
-      <Header/>
+    <div className="container">
+      <Header />
       <div className='main'>
-        <Outlet/>
+        <Outlet />
       </div>
-      <Footer/>
+      <Footer />
     </div>
-  )
+  );
 };
 
 export default Layout;

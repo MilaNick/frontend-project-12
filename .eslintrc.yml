@@ -30,11 +30,9 @@
       "react"
   ],
   "rules": {
+    semi: [2, "always"],
     react/prop-types: 0,
     react/jsx-uses-react: 0,
-    react/react-in-jsx-scope: 0,
     eslint-disable-next-line: 0,
-    quotes: [2, "single", { "avoidEscape": true }],
-    jsx-quotes: [2, "prefer-single"]
   }
 }

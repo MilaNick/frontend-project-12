@@ -1,9 +1,9 @@
-import './index.scss'; // TODO перенести в компонент стили
+import './index.scss';
 
-const Form = ({children, className, onSubmit}) => {
+const Form = ({ children, className, onSubmit }) => {
   return (
     <form className={className} onSubmit={onSubmit} >{children}</form>
-  )
-}
+  );
+};
 
 export default Form;

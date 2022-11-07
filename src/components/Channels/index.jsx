@@ -1,6 +1,6 @@
-import {useNavigate} from 'react-router-dom';
-import {useEffect, useState} from 'react';
-import {useSelector} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Channel from 'components/Channel';
 import CreateChannelPopup from 'components/CreateChannelPopup';
@@ -9,30 +9,30 @@ import Icon from 'ui/Icon';
 
 import './index.scss';
 
-const Channels = ({activeChannelId}) => {
+const Channels = ({ activeChannelId }) => {
   const channels = useSelector((state) => state.channelsReducer.channels);
   const [shown, setShown] = useState(false);
   const [justCreatedChannelName, setJustCreatedChannelName] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(justCreatedChannelName) {
+    if (justCreatedChannelName) {
       const justCreatedChannel = channels.find(channel => channel.name === justCreatedChannelName)
       if (justCreatedChannel) {
-        navigate(`/chats/${justCreatedChannel.id}`)
-        setJustCreatedChannelName(null)
+        navigate(`/chats/${justCreatedChannel.id}`);
+        setJustCreatedChannelName(null);
       }
     }
-  }, [channels, justCreatedChannelName])
+  }, [channels, justCreatedChannelName]);
 
   return (
-    <div className='main-channels'>
-      <div className='main-channels__wrap'>
-        <h3 className='main-channels__title'>Каналы</h3>
-        <Button size='sm' onClick={() => setShown(true)}><Icon icon='Plus'/><span className='hidden'>+</span></Button>
-        {shown && <CreateChannelPopup onAddChannel={setJustCreatedChannelName} channels={channels} setShown={setShown}/>}
+    <div className="main-channels">
+      <div className="main-channels__wrap">
+        <h3 className="main-channels__title">Каналы</h3>
+        <Button size="sm" onClick={() => setShown(true)}><Icon icon="Plus" /><span className="hidden">+</span></Button>
+        {shown && <CreateChannelPopup onAddChannel={setJustCreatedChannelName} channels={channels} setShown={setShown} />}
       </div>
-      <ul className='main-channels__names'>
+      <ul className="main-channels__names">
         {channels.map((channel) => {
           return (
             <Channel
@@ -46,7 +46,7 @@ const Channels = ({activeChannelId}) => {
         })}
       </ul>
     </div>
-  )
+  );
 };
 
 export default Channels;

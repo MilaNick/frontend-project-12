@@ -44,7 +44,7 @@ const Channel = ({id, name, isActive, removable}) => {
                 onClick: () => renameChannel(),
               }
             ]}>
-              <Button size='sm' ><Icon icon='ArrowDown'/><span hidden>+</span></Button>
+              <Button size='sm' ><Icon icon='ArrowDown'/></Button>
 
             </DropdownMenu>)}
         {shownRemovePopup &&  <RemoveChannelPopup id={id} close={() => setShownRemovePopup(false)}/>}

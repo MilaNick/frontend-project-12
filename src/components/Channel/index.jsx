@@ -8,7 +8,7 @@ import RemoveChannelPopup from 'components/RemoveChannelPopup';
 import RenameChannelPopup from 'components/RenameChannelPopup';
 import Button from 'ui/Button';
 import DropdownMenu from 'ui/DropdownMenu';
-import Icon from 'ui/Icon';
+// import Icon from 'ui/Icon';
 
 import './index.scss';
 
@@ -44,7 +44,8 @@ const Channel = ({id, name, isActive, removable}) => {
                 onClick: () => renameChannel(),
               }
             ]}>
-              <Button size='sm' ><Icon icon='ArrowDown'/></Button>
+              <Button size='sm' >+</Button>
+              {/*<Icon icon='ArrowDown'/>*/}
             </DropdownMenu>)}
         {shownRemovePopup &&  <RemoveChannelPopup id={id} close={() => setShownRemovePopup(false)}/>}
         {shownRenamePopup &&  <RenameChannelPopup channels={channels} id={id} close={() => setShownRenamePopup(false)}/>}

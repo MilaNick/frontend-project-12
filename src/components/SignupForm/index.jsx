@@ -14,12 +14,12 @@ const SignupForm = () => {
   const config = [
     {
       name: 'name',
-      placeholder: t('username'),
+      placeholder: t('username registration'),
       initialValue: '',
       schema: Yup
           .string()
-          .min(3, t('Minimum number of characters'))
-          .max(20, t('Maximum number of characters'))
+          .min(3, t('Minimum and maximum number of characters'))
+          .max(20, t('Minimum and maximum number of characters'))
           .required(t('required'))
     },
     {
@@ -54,7 +54,7 @@ const SignupForm = () => {
           localStorage.setItem('username', username);
           setAuth({token, username})
         }).catch((error) => {
-          setErrorReport(error.message)
+            setErrorReport(error.message)
         });
       }}
       buttonText={t('signup')}

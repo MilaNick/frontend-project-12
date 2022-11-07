@@ -12,7 +12,9 @@ const Input = (props) => {
 
   return (
     <>
-      <input
+        {nativeInputProps.placeholder && <label htmlFor={name} hidden>{nativeInputProps.placeholder}</label>}
+        <input
+        name={nativeInputProps.name}
         type={type}
         className={classes}
         {...nativeInputProps}

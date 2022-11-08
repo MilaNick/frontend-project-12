@@ -20,7 +20,7 @@ function Messages({ activeChannelId }) {
     .channelsReducer.channels
     .find((channel) => channel.id === activeChannelId));
   const messages = useSelector((state) => state.messagesReducer.messages
-    .filter(message => message.channelId === activeChannelId));
+    .filter((message) => message.channelId === activeChannelId));
   // реализация скролла до последнего сообщения
   const lastMessageContainer = useRef(null);
   const prevMessageCount = useRef(0);

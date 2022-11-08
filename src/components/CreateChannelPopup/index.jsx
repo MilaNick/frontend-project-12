@@ -12,7 +12,7 @@ import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
 
-const CreateChannelPopup = ({ channels, setShown, onAddChannel }) => {
+function CreateChannelPopup({ channels, setShown, onAddChannel }) {
   const [newChannel, setNewChannel] = useState('');
   const [error, setError] = useState('');
   const { t } = useTranslation();
@@ -52,7 +52,7 @@ const CreateChannelPopup = ({ channels, setShown, onAddChannel }) => {
       setError(t('Enter the channel name'));
       notifyError(e, t('Enter the channel name'));
     }
-};
+  };
   const closePopup = () => {
     setNewChannel('');
     setError('');
@@ -80,6 +80,6 @@ const CreateChannelPopup = ({ channels, setShown, onAddChannel }) => {
       </Form>
     </Popup>
   );
-};
+}
 
 export default CreateChannelPopup;

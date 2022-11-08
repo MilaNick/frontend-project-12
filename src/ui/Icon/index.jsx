@@ -6,7 +6,7 @@ import { ReactComponent as Plus } from 'assets/images/svg/plus.svg';
 import './index.scss';
 
 const icons = {
-  ArrowDown, ArrowRight, Close, Plus
+  ArrowDown, ArrowRight, Close, Plus,
 };
 
 function Icon({ icon }) {

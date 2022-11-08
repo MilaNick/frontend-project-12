@@ -12,10 +12,12 @@ function Input(props) {
 
   return (
     <>
-      {nativeInputProps.placeholder &&
+      {nativeInputProps.placeholder
+        && (
         <label htmlFor={`input-${nativeInputProps.name}`}>
           {nativeInputProps.placeholder}
-        </label>}
+        </label>
+        )}
       <input
         type={type}
         id={`input-${nativeInputProps.name}`}

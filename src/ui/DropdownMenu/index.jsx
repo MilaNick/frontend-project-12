@@ -19,7 +19,6 @@ function DropdownMenu(props) {
           { items.map((item) => {
             const { label, onClick } = item;
             return (
-              // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
               <div
                 key={label}
                 className="dropdown-menu-content__item"

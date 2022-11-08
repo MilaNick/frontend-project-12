@@ -11,6 +11,9 @@
       "version": "detect"
     }
   },
+  "engines": {
+    "node": "16.13.0"
+  },
   "dependencies": {
     "@hexlet/chat-server": "^1.1.6",
     "@reduxjs/toolkit": "^1.8.5",

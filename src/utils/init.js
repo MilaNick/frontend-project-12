@@ -43,7 +43,7 @@ function ErrorDisplay({ error, resetError }) {
       {' '}
       {error.message}
       <br />
-      <button onClick={() => resetError()}>Сброс</button>
+      <button type="button" onClick={() => resetError()}>Сброс</button>
     </div>
   );
 }

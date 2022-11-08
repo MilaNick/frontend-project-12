@@ -35,7 +35,7 @@ function RenameChannelPopup({ channels, id, close }) {
       notifyError(e, t('Not unique name'));
       return;
     }
-    if (check(newNameChannel)){
+    if (check(newNameChannel)) {
       setError(t('The channel name cannot contain profanity'));
       notifyError(e, t('The channel name cannot contain profanity'));
       return;

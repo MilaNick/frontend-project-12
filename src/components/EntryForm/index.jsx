@@ -17,7 +17,7 @@ function EntryForm(props) {
     config.reduce((acc, field) => ({ ...acc, [field.name]: field.schema }), {}),
   );
   const formik = useFormik({
-    initialValues: config.reduce((acc, field) => ({...acc, [field.name]: field.initialValue ?? ''}), {}),
+    initialValues: config.reduce((acc, field) => ({ ...acc, [field.name]: field.initialValue ?? '' }), {}),
     validationSchema,
     onSubmit,
   });

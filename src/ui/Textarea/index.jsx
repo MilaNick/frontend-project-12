@@ -13,7 +13,6 @@ function Textarea(props) {
     <>
       <textarea
         className={classes}
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         {...nativeProps}
       />
       {error && <Report type="error">{error}</Report>}

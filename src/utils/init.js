@@ -43,7 +43,6 @@ function ErrorDisplay({ error, resetError }) {
       {' '}
       {error.message}
       <br />
-      {/* eslint-disable-next-line react/button-has-type */}
       <button onClick={() => resetError()}>Сброс</button>
     </div>
   );

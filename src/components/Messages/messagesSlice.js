@@ -8,7 +8,8 @@ const messagesSlice = createSlice({
   },
   reducers: {
     setMessages(state, { payload }) {
-      state.messages = payload;
+      const newState = state;
+      newState.messages = payload;
     },
     addMessage(state, { payload }) {
       const {
@@ -23,12 +24,14 @@ const messagesSlice = createSlice({
       });
     },
     removeMessage(state, { payload }) {
-      state.messages = state.messages.filter(({ id }) => id !== payload.id);
+      const newState = state;
+      newState.messages = state.messages.filter(({ id }) => id !== payload.id);
     },
   },
   extraReducers: (builder) => {
     builder.addCase(removeChannel, (state, { payload: channelId }) => {
-      state.messages = state.messages.filter((message) => message.channelId !== channelId);
+      const newState = state;
+      newState.messages = state.messages.filter((message) => message.channelId !== channelId);
     });
   },
 });

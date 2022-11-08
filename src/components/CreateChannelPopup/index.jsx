@@ -35,7 +35,7 @@ function CreateChannelPopup({ channels, setShown, onAddChannel }) {
       notifyError(e, t('Not unique name'));
       return;
     }
-    if (check(newChannel)){
+    if (check(newChannel)) {
       setError(t('The channel name cannot contain profanity'));
       notifyError(e, t('The channel name cannot contain profanity'));
       return;

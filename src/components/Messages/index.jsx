@@ -18,7 +18,7 @@ import './index.scss';
 function Messages({ activeChannelId }) {
   const channel = useSelector((state) => state
     .channelsReducer.channels
-    .find((channel) => channel.id === activeChannelId));
+    .find((channel1) => channel1.id === activeChannelId));
   const messages = useSelector((state) => state.messagesReducer.messages
     .filter((message) => message.channelId === activeChannelId));
   // реализация скролла до последнего сообщения

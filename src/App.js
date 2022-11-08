@@ -42,7 +42,7 @@ function App() {
   return (
     <AuthContext.Provider value={{ auth, setAuth, logout }}>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           {screens.map(({ path, component: Component, accessLevel }) => (
             <Route
               key={path}

@@ -20,7 +20,7 @@ function DropdownMenu(props) {
           { items.map((item) => {
             const { label, onClick } = item;
             return (
-              <button type='button' key={label} className="dropdown-menu-content__item" onClick={onClick}>
+              <button type="button" key={label} className="dropdown-menu-content__item" onClick={onClick}>
                 {label}
               </button>
             );

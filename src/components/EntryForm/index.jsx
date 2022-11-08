@@ -34,7 +34,9 @@ function EntryForm(props) {
         <Input
           key={name}
           error={formik.errors[name] && formik.touched[name] ? formik.errors[name] : ''}
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...formik.getFieldProps(name)}
         />
       ))}

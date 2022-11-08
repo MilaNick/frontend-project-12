@@ -30,7 +30,7 @@ function Chats() {
         navigate(`/chats/${channels[0].id}`);
       }
     }
-  }, [isReady, channels]);
+  }, [isReady, channels, channelId, navigate]);
 
   useEffect(() => {
     if (auth) {
@@ -53,7 +53,7 @@ function Chats() {
         console.log(t('reboot'), e.message);
       });
     }
-  }, []);
+  }, [auth, channelId, dispatch, navigate, t]);
 
   return (
     <div className="chat-container">

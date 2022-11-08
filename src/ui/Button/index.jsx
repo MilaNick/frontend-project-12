@@ -33,11 +33,11 @@ function Button(
     'btn--relative': relative,
   });
   if (href) {
-    return <Link ref={forwardedRef} to={href} type={type} className={classes}>{children}</Link>;
+    return <Link ref={forwardedRef} to={href} className={classes}>{children}</Link>;
   }
 
   return (
-    <button ref={forwardedRef} onClick={onClick} type={type} className={classes}>{children}</button>
+    <button ref={forwardedRef} onClick={onClick} type={type === 'button' ? 'button' : 'submit'} className={classes}>{children}</button>
   );
 }
 

@@ -24,7 +24,7 @@ function Channels({ activeChannelId }) {
         setJustCreatedChannelName(null);
       }
     }
-  }, [channels, justCreatedChannelName]);
+  }, [channels, justCreatedChannelName, navigate]);
 
   return (
     <div className="main-channels">

@@ -24,8 +24,6 @@ function DropdownMenu(props) {
                 key={label}
                 className="dropdown-menu-content__item"
                 onClick={onClick}
-                role="button"
-                tabIndex="0"
               >
                 {label}
               </div>

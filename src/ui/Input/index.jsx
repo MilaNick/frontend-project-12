@@ -14,7 +14,7 @@ function Input(props) {
     <>
       {nativeInputProps.placeholder
         && (
-        <label htmlFor={`input-${nativeInputProps.name}`}>
+        <label className='hidden' htmlFor={`input-${nativeInputProps.name}`}>
           {nativeInputProps.placeholder}
         </label>
         )}

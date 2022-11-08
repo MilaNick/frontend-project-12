@@ -3,7 +3,6 @@ import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
-// eslint-disable-next-line import/no-cycle
 import { AuthContext } from 'App';
 import EntryForm from 'components/EntryForm';
 

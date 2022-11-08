@@ -11,9 +11,6 @@
       "version": "detect"
     }
   },
-  "engines": {
-    "node": "16.13.0"
-  },
   "dependencies": {
     "@hexlet/chat-server": "^1.1.6",
     "@reduxjs/toolkit": "^1.8.5",
@@ -38,7 +35,6 @@
     "sass": "^1.54.5",
     "socket.io": "^4.5.3",
     "socket.io-client": "^4.5.3",
-    "tippy.js": "^6.3.7",
     "yup": "^0.32.11"
   },
   "scripts": {
@@ -68,7 +64,6 @@
   },
   "devDependencies": {
     "eslint": "^8.24.0",
-    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-react": "^7.31.8"
   }
 }

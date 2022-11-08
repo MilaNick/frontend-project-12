@@ -2,12 +2,6 @@
   "settings": {
     "react": {
       "version": "detect"
-    },
-    "import/resolver": {
-      "node": {
-        "extensions": [ ".js", ".jsx" ],
-        "moduleDirectory": [ "src", "node_modules" ]
-      }
     }
   },
   "env": {
@@ -15,7 +9,6 @@
     "es2021": true
   },
   "extends": [
-    "airbnb",
     "eslint:recommended",
     "plugin:react/recommended"
   ],
@@ -27,12 +20,12 @@
     "sourceType": "module"
   },
   "plugins": [
-      "react"
+    "react"
   ],
   "rules": {
     react/prop-types: 0,
     react/jsx-uses-react: 0,
+    react/react-in-jsx-scope: 0,
     eslint-disable-next-line: 0,
-    react/react-in-jsx-scope: 0
   }
 }

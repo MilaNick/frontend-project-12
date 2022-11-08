@@ -28,7 +28,7 @@ function EntryForm(props) {
       onSubmit={formik.handleSubmit}
     >
       {config.map(({
-        name, initialValue, schema, ...rest
+        name, ...rest
       }) => (
         <Input
           key={name}

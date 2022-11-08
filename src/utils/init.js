@@ -1,12 +1,10 @@
-// import {useTranslation} from 'react-i18next';
-
+import React from 'react';
 import { io } from 'socket.io-client';
 import store from 'store/store';
 
 import { addChannel, removeChannel, renameChannel } from 'components/Channels/channelsSlice';
 import { addMessage } from 'components/Messages/messagesSlice';
 
-// const {t} = useTranslation();
 const socket = io();
 
 socket.on('newMessage', ({

@@ -1,4 +1,6 @@
 import cn from 'classnames';
+import React from 'react';
+
 import Report from 'components/Report';
 
 import './index.scss';

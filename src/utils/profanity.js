@@ -1,4 +1,5 @@
 import * as filter from 'leo-profanity';
+import React from 'react';
 
 export const clean = (text) => {
   filter.loadDictionary('en');

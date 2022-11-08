@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { forwardRef, useContext } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactComponent as ArrowDown } from 'assets/images/svg/arrow-down.svg';
 import { ReactComponent as ArrowRight } from 'assets/images/svg/arrow-right.svg';
 import { ReactComponent as Close } from 'assets/images/svg/close.svg';

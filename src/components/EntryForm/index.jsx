@@ -7,25 +7,29 @@ import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
 
-const EntryForm = (props) => {
-  const { config, onSubmit, buttonText, errorMessage = '' } = props;
+function EntryForm(props) {
+  const {
+    config, onSubmit, buttonText, errorMessage = '',
+  } = props;
   const { t } = useTranslation();
 
   const validationSchema = Yup.object().shape(
     config.reduce((acc, field) => ({ ...acc, [field.name]: field.schema }), {}),
-  )
+  );
   const formik = useFormik({
     initialValues: config.reduce((acc, field) => ({...acc, [field.name]: field.initialValue ?? ''}), {}),
     validationSchema,
     onSubmit,
-  })
+  });
 
   return (
     <Form
-      className='card__form'
-      onSubmit={formik.handleSubmit}>
-      {/* eslint-disable-next-line no-unused-vars */}
-      {config.map(({name, initialValue, schema, ...rest}) => (
+      className="card__form"
+      onSubmit={formik.handleSubmit}
+    >
+      {config.map(({
+        name, initialValue, schema, ...rest
+      }) => (
         <Input
           key={name}
           error={formik.errors[name] && formik.touched[name] ? formik.errors[name] : ''}
@@ -33,10 +37,10 @@ const EntryForm = (props) => {
           {...formik.getFieldProps(name)}
         />
       ))}
-      <Button type='submit' fluid size='lg' top='lg'>{buttonText}</Button>
-      {errorMessage && <Report type='error'>{t('Request failed with status code 401')}</Report>}
+      <Button type="submit" fluid size="lg" top="lg">{buttonText}</Button>
+      {errorMessage && <Report type="error">{t('Request failed with status code 401')}</Report>}
     </Form>
-  )
+  );
 }
 
 export default EntryForm;

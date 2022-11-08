@@ -5,14 +5,16 @@ import { ReactComponent as Plus } from 'assets/images/svg/plus.svg';
 
 import './index.scss';
 
-const icons = { ArrowDown, ArrowRight, Close, Plus };
+const icons = {
+  ArrowDown, ArrowRight, Close, Plus
+};
 
-const Icon = ({ icon }) => {
+function Icon({ icon }) {
   const ConcreteIcon = icons[icon];
 
   return (
     <ConcreteIcon className="icon" />
   );
-};
+}
 
 export default Icon;

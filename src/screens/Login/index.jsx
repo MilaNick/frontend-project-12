@@ -6,7 +6,7 @@ import LoginForm from 'components/LoginForm';
 
 import './index.scss';
 
-const Login = () => {
+function Login() {
   const { t } = useTranslation();
   return (
     <div className="card-wrap">
@@ -27,6 +27,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;

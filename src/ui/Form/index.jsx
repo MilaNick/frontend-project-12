@@ -1,9 +1,9 @@
 import './index.scss';
 
-const Form = ({ children, className, onSubmit }) => {
+function Form({ children, className, onSubmit }) {
   return (
-    <form className={className} onSubmit={onSubmit} >{children}</form>
+    <form className={className} onSubmit={onSubmit}>{children}</form>
   );
-};
+}
 
 export default Form;

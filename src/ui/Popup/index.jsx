@@ -3,7 +3,7 @@ import Icon from 'ui/Icon';
 
 import './index.scss';
 
-const Popup = ({ children, close, title }) => {
+function Popup({ children, close, title }) {
   return (
     <div className="popup popup--shown" onClick={close}>
       <div className="popup__content" onClick={(e) => e.stopPropagation()}>
@@ -15,6 +15,6 @@ const Popup = ({ children, close, title }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Popup;

@@ -30,7 +30,7 @@ const CreateChannelPopup = ({ channels, setShown, onAddChannel }) => {
   };
   const addChannel = (e) => {
     e.preventDefault();
-    if (channels.find(channel => channel.name.toLowerCase() === newChannel.toLowerCase())) {
+    if (channels.find((channel) => channel.name.toLowerCase() === newChannel.toLowerCase())) {
       setError(t('Not unique name'));
       notifyError(e, t('Not unique name'));
       return;
@@ -42,7 +42,7 @@ const CreateChannelPopup = ({ channels, setShown, onAddChannel }) => {
     }
     setError('');
     if (newChannel) {
-      socket.emit('newChannel', {name: newChannel}, () => {
+      socket.emit('newChannel', { name: newChannel }, () => {
         notify(e);
       });
       onAddChannel(newChannel);
@@ -65,7 +65,13 @@ const CreateChannelPopup = ({ channels, setShown, onAddChannel }) => {
   return (
     <Popup close={closePopup} title={t('Add channel')}>
       <Form onSubmit={addChannel}>
-        <Input autoFocus name="new-channel" placeholder={t('Enter the channel name')} value={newChannel} onChange={handleChange}/>
+        <Input
+          autoFocus
+          name="new-channel"
+          placeholder={t('Enter the channel name')}
+          value={newChannel}
+          onChange={handleChange}
+        />
         {error && <Report type="error">{error}</Report>}
         <div className="wrapper">
           <Button size="lg" top="lg" left onClick={closePopup}>{t('cansel')}</Button>

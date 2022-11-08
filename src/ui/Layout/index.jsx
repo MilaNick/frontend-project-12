@@ -5,16 +5,16 @@ import Footer from 'ui/Footer';
 
 import './index.scss';
 
-const Layout = () => {
+function Layout() {
   return (
     <div className="container">
       <Header />
-      <div className='main'>
+      <div className="main">
         <Outlet />
       </div>
       <Footer />
     </div>
   );
-};
+}
 
 export default Layout;

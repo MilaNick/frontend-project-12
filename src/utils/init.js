@@ -37,11 +37,13 @@ const rollbarConfig = {
 
 function ErrorDisplay({ error, resetError }) {
   return (
+    // eslint-disable-next-line react/jsx-filename-extension
     <div>
       Что то пошло не так... :
       {' '}
       {error.message}
       <br />
+      {/* eslint-disable-next-line react/button-has-type */}
       <button onClick={() => resetError()}>Сброс</button>
     </div>
   );

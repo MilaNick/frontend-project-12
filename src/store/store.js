@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import channelsReducer from 'components/Channels/channelsSlice.js';
-import messagesReducer from 'components/Messages/messagesSlice.js';
+import channelsReducer from 'components/Channels/channelsSlice';
+import messagesReducer from 'components/Messages/messagesSlice';
 
 export default configureStore({
   reducer: {
@@ -9,5 +9,5 @@ export default configureStore({
     messagesReducer,
   },
   // eslint-disable-next-line no-undef
-  devTools: process.env.NODE_ENV !== 'production', // TODO почему подчеркивает линтер
+  devTools: process.env.NODE_ENV !== 'production',
 });

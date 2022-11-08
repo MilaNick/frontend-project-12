@@ -3,7 +3,7 @@ import Skull from 'assets/images/skull.jpg';
 
 import './index.scss';
 
-const NotFoundPage = () => {
+function NotFoundPage() {
   const { t } = useTranslation();
   return (
     <div className="not-found-page">
@@ -11,6 +11,6 @@ const NotFoundPage = () => {
       <img src={Skull} alt="not-found-page" className="not-found-page__pic" />
     </div>
   );
-};
+}
 
 export default NotFoundPage;

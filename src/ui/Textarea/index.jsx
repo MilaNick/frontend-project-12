@@ -2,8 +2,8 @@ import cn from 'classnames';
 import Report from 'components/Report';
 
 import './index.scss';
-// TODO подключить плагин автосайз к текстарее
-const Textarea = (props) => {
+
+function Textarea(props) {
   const { error = '', ...nativeProps } = props;
   const classes = cn({
     textarea: true,
@@ -13,11 +13,12 @@ const Textarea = (props) => {
     <>
       <textarea
         className={classes}
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         {...nativeProps}
       />
       {error && <Report type="error">{error}</Report>}
     </>
   );
-};
+}
 
 export default Textarea;

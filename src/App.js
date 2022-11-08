@@ -40,6 +40,7 @@ function App() {
   };
 
   return (
+    // eslint-disable-next-line react/jsx-filename-extension
     <AuthContext.Provider value={{ auth, setAuth, logout }}>
       <Routes>
         <Route path="/" element={<Layout />}>

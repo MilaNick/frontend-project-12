@@ -47,7 +47,7 @@ const SignupForm = () => {
       config={config}
       onSubmit={({ name, password }) => {
         setErrorReport('');
-        axios.post('/api/v1/signup', { username: name, password: password }).then((response) => {
+        axios.post('/api/v1/signup', { username: name, password }).then((response) => {
           const { token, username } = response.data;
           localStorage.setItem('token', token);
           localStorage.setItem('username', username);

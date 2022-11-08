@@ -12,7 +12,9 @@ import Icon from 'ui/Icon';
 
 import './index.scss';
 
-const Channel = ({ id, name, isActive, removable }) => {
+function Channel({
+  id, name, isActive, removable,
+}) {
   const channels = useSelector((state) => state.channelsReducer.channels);
   const [shownRemovePopup, setShownRemovePopup] = useState(false);
   const [shownRenamePopup, setShownRenamePopup] = useState(false);
@@ -31,7 +33,10 @@ const Channel = ({ id, name, isActive, removable }) => {
   };
   return (
     <li className={classes}>
-      <Link className="channel-item__link" to={`/chats/${id}`}>#&nbsp;{name}</Link>
+      <Link className="channel-item__link" to={`/chats/${id}`}>
+        #&nbsp;
+        {name}
+      </Link>
       {removable && (
         <DropdownMenu items={[
           {
@@ -41,15 +46,26 @@ const Channel = ({ id, name, isActive, removable }) => {
           {
             label: t('rename'),
             onClick: () => renameChannel(),
-          }
-        ]}>
-          <Button size="sm"><Icon icon="ArrowDown" /><span className="hidden">{t('Channel management')}</span></Button>
+          },
+        ]}
+        >
+          <Button size="sm">
+            <Icon icon="ArrowDown" />
+            <span className="hidden">{t('Channel management')}</span>
+          </Button>
 
-        </DropdownMenu>)}
+        </DropdownMenu>
+      )}
       {shownRemovePopup && <RemoveChannelPopup id={id} close={() => setShownRemovePopup(false)} />}
-      {shownRenamePopup && <RenameChannelPopup channels={channels} id={id} close={() => setShownRenamePopup(false)} />}
+      {shownRenamePopup && (
+      <RenameChannelPopup
+        channels={channels}
+        id={id}
+        close={() => setShownRenamePopup(false)}
+      />
+      )}
     </li>
-  )
-};
+  );
+}
 
 export default Channel;

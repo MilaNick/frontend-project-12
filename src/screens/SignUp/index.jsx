@@ -6,7 +6,7 @@ import SignupForm from 'components/SignupForm';
 
 import './index.scss';
 
-const SignUp = () => {
+function SignUp() {
   const { t } = useTranslation();
 
   return (
@@ -28,6 +28,6 @@ const SignUp = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SignUp;

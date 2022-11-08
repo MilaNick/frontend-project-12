@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 import { AuthContext } from 'App';
 
-const ProtectedRoute = ({ children, accessLevel }) => {
+function ProtectedRoute({ children, accessLevel }) {
   const { auth } = useContext(AuthContext);
 
   if (accessLevel === 'auth' && !auth) {
@@ -13,6 +13,6 @@ const ProtectedRoute = ({ children, accessLevel }) => {
     return <Navigate to="/chats" />;
   }
   return children;
-};
+}
 
 export default ProtectedRoute;

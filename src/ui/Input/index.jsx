@@ -3,7 +3,7 @@ import Report from 'components/Report';
 
 import './index.scss';
 
-const Input = (props) => {
+function Input(props) {
   const { type = 'text', error = '', ...nativeInputProps } = props;
   const classes = cn({
     input: true,
@@ -12,16 +12,20 @@ const Input = (props) => {
 
   return (
     <>
-        {nativeInputProps.placeholder && <label htmlFor={`input-${nativeInputProps.name}`}>{nativeInputProps.placeholder}</label>}
-        <input
-            type={type}
-            id={`input-${nativeInputProps.name}`}
-            className={classes}
-            {...nativeInputProps}
+      {nativeInputProps.placeholder &&
+        <label htmlFor={`input-${nativeInputProps.name}`}>
+          {nativeInputProps.placeholder}
+        </label>}
+      <input
+        type={type}
+        id={`input-${nativeInputProps.name}`}
+        className={classes}
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        {...nativeInputProps}
       />
       {error && <Report type="error">{error}</Report>}
     </>
   );
-};
+}
 
 export default Input;

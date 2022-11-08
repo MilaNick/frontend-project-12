@@ -24,6 +24,7 @@ function Input(props) {
         type={type}
         id={`input-${nativeInputProps.name}`}
         className={classes}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...nativeInputProps}
       />
       {error && <Report type="error">{error}</Report>}

@@ -7,7 +7,7 @@ import './index.scss';
 
 function Popup({ children, close, title }) {
   return (
-    <div className="popup popup--shown" onClick={close} aria-hidden >
+    <div className="popup popup--shown" onClick={close} aria-hidden>
       <div className="popup__content" onClick={(e) => e.stopPropagation()} aria-hidden>
         <div className="wrap">
           <h3>{title}</h3>

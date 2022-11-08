@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -21,13 +20,9 @@ function DropdownMenu(props) {
           { items.map((item) => {
             const { label, onClick } = item;
             return (
-              <div
-                key={label}
-                className="dropdown-menu-content__item"
-                onClick={onClick}
-              >
+              <button key={label} className="dropdown-menu-content__item" onClick={onClick}>
                 {label}
-              </div>
+              </button>
             );
           })}
         </div>

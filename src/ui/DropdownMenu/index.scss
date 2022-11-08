@@ -7,12 +7,22 @@
 
   &-content {
     background: $bg-secondary;
-
+    padding: 0;
     &__item {
-      //background: $bg-primary;
+      cursor: pointer;
+      padding: 0.6rem 1rem;
+      font-size: 1.7rem;
+      line-height: 1.4;
+      text-align: left;
+      width: 100%;
+      transition: background-color 0.2s;
+      &:hover {
+        background: $bg-secondary-hover;
+      }
     }
   }
   .tippy-content {
     background: $bg-secondary;
+    padding: 0;
   }
 }

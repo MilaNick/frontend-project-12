@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React, { createContext, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -40,7 +41,6 @@ function App() {
   };
 
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <AuthContext.Provider value={{ auth, setAuth, logout }}>
       <Routes>
         <Route path="/" element={<Layout />}>

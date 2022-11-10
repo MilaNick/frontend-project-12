@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { setChannels } from 'components/Channels/channelsSlice';
-import { setMessages } from 'components/Messages/messagesSlice';
+import { setChannels } from 'slices/channelsSlice';
+import { setMessages } from 'slices/messagesSlice';
 
 import { AuthContext } from 'App';
 import Channels from 'components/Channels';
@@ -49,7 +49,6 @@ function Chats() {
         dispatch(messages);
         setIsReady(true);
       }).catch((e) => {
-        // eslint-disable-next-line no-console
         console.log(t('reboot'), e.message);
       });
     }

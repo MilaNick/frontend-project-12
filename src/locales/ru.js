@@ -40,7 +40,7 @@ export default {
     required: 'Обязательное поле',
     send: 'Отправить',
     signup: 'Зарегистрироваться',
-    'Something went wrong...': 'Что то пошло не так',
+    'Something went wrong': 'Что то пошло не так...',
     'The channel name cannot contain profanity': 'Название канала не может содержать ненормативную лексику',
 
   },

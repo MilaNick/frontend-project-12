@@ -4,7 +4,7 @@ import React, {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { socket } from 'utils/init';
+import { socket } from 'init';
 
 import { AuthContext } from 'App';
 import Message from 'components/Message';
@@ -46,7 +46,6 @@ function Messages({ activeChannelId }) {
       channelId: activeChannelId,
       username: auth.username,
     }, (response) => {
-      // eslint-disable-next-line no-console
       console.log(response.status);
     });
     setValue('');

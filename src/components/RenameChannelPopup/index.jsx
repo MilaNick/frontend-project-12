@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { socket } from 'utils/init';
+import { socket } from 'init';
 
 import Report from 'components/Report';
 import { check } from 'utils/profanity';

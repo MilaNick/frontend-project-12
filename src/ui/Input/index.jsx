@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import cn from 'classnames';
 import React from 'react';
 
@@ -24,7 +25,6 @@ function Input(props) {
         type={type}
         id={`input-${nativeInputProps.name}`}
         className={classes}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...nativeInputProps}
       />
       {error && <Report type="error">{error}</Report>}

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import cn from 'classnames';
 import React from 'react';
 
@@ -15,7 +16,6 @@ function Textarea(props) {
     <>
       <textarea
         className={classes}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...nativeProps}
       />
       {error && <Report type="error">{error}</Report>}

@@ -27,10 +27,7 @@ function EntryForm(props) {
   return (
     <Form
       className="card__form"
-      onSubmit={() => {
-        console.log(1)
-        formik.handleSubmit()
-      }}
+      onSubmit={formik.handleSubmit}
     >
       {config.map(({
         name, ...rest
@@ -42,7 +39,7 @@ function EntryForm(props) {
           {...formik.getFieldProps(name)}
         />
       ))}
-      <Button disabled={formik.isSubmitting || formik.errors} type="submit" fluid size="lg" top="lg">{buttonText}</Button>
+      <Button type="submit" fluid size="lg" top="lg">{buttonText}</Button>
       {errorMessage && <Report type="error">{t('Request failed with status code 401')}</Report>}
     </Form>
   );

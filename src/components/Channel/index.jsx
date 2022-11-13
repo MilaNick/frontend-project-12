@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { openPopup } from 'slices/activePopupSlice'
+import { openPopup } from 'slices/activePopupSlice';
 import Button from 'ui/Button';
-import DropdownMenu from 'ui/DropdownMenu';
+import DropdownMenu from 'components/DropdownMenu';
 import Icon from 'ui/Icon';
 
 import './index.scss';
@@ -23,10 +23,10 @@ function Channel({
   });
 
   const deleteChannel = () => {
-    dispatch(openPopup({type: 'remove-channel', props: {id} }))
+    dispatch(openPopup({ type: 'remove-channel', props: { id } }));
   };
   const renameChannel = () => {
-    dispatch(openPopup({type: 'rename-channel', props: {id} }))
+    dispatch(openPopup({ type: 'rename-channel', props: { id } }));
   };
   return (
     <li className={classes}>

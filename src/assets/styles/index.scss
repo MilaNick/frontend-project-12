@@ -143,3 +143,33 @@ div {
   height: 100%;
   margin: 0 auto;
 }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  color: $baby-blue;
+  margin-left: 1rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  color: $font-base;
+  background: $bone;
+  flex-shrink: 0;
+
+  .created-by {
+    margin-left: 40%;
+  }
+}

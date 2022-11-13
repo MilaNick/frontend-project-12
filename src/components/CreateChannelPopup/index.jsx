@@ -1,6 +1,7 @@
+import filter from 'leo-profanity';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,12 +9,10 @@ import { socket } from 'init';
 
 import Report from 'components/Report';
 import { closePopup } from 'slices/activePopupSlice';
-import { check } from 'utils/profanity';
 import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
-
 
 function CreateChannelPopup({ onAddChannel }) {
   const channels = useSelector((state) => state.channelsReducer.channels);
@@ -40,7 +39,7 @@ function CreateChannelPopup({ onAddChannel }) {
       notifyError(e, t('Not unique name'));
       return;
     }
-    if (check(newChannel)) {
+    if (filter.check(newChannel)) {
       setError(t('The channel name cannot contain profanity'));
       notifyError(e, t('The channel name cannot contain profanity'));
       return;

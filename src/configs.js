@@ -1,5 +1,4 @@
-
-export const rollbarConfig = {
+const rollbarConfig = {
   accessToken: process.env.ACCESS_TOKEN_ROLLBAR,
   captureUncaught: true,
   captureUnhandledRejections: true,
@@ -7,3 +6,5 @@ export const rollbarConfig = {
     environment: 'production',
   },
 };
+
+export default rollbarConfig;

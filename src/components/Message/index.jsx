@@ -1,10 +1,10 @@
 import cn from 'classnames';
+import filter from 'leo-profanity';
 import React, { forwardRef, useContext } from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import { AuthContext } from 'App';
-import { clean } from 'utils/profanity';
 
 import './index.scss';
 
@@ -47,7 +47,7 @@ function Message({ body, username, date }, ref) {
         </Tippy>
         )}
       </div>
-      <div className="message__text">{clean(body)}</div>
+      <div className="message__text">{filter.clean(body)}</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Channel from 'components/Channel';
 import { openPopup } from 'slices/activePopupSlice';
@@ -30,7 +30,7 @@ function Channels({ activeChannelId }) {
     <div className="main-channels">
       <div className="main-channels__wrap">
         <h3 className="main-channels__title">Каналы</h3>
-        <Button size="sm" onClick={() => dispatch(openPopup({type:'add-channel', props: { onAddChannel: setJustCreatedChannelName }}))}>
+        <Button size="sm" onClick={() => dispatch(openPopup({type:'add-channel', props: { onAddChannel: setJustCreatedChannelName}}))}>
           <Icon icon="Plus" />
           <span className="hidden">+</span>
         </Button>

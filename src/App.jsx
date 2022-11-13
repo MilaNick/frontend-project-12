@@ -8,10 +8,10 @@ import Main from 'screens/Main';
 import NotFoundPage from 'screens/NotFoundPage';
 import ProtectedRoute from 'components/ProtectedRoute';
 import SignUp from 'screens/SignUp';
-import Layout from 'ui/Layout';
+import Layout from 'components/Layout';
 
 import './App.scss';
-import ActivePopup from "./components/ActivePopup";
+import ActivePopup from './components/ActivePopup';
 
 const screens = [
   { path: '/', component: Main, accessLevel: 'auth' },
@@ -58,7 +58,7 @@ function App() {
           ))}
         </Route>
       </Routes>
-      <ActivePopup/>
+      <ActivePopup />
     </AuthContext.Provider>
   );
 }

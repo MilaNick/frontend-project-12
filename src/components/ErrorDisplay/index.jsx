@@ -1,14 +1,11 @@
-import React from "react";
-import {useTranslation} from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 function ErrorDisplay({ error, resetError }) {
   const { t } = useTranslation();
   return (
     <div>
-      {t('Something went wrong')}:
-      {' '}
-      {error.message}
-      <br />
+      {`${t('Something went wrong')}: ${error.message}`}
       <button type="button" onClick={() => resetError()}>Сброс</button>
     </div>
   );

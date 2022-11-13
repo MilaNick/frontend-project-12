@@ -7,16 +7,18 @@ const activePopupSlice = createSlice({
   },
   reducers: {
     openPopup(state, { payload }) {
-      state.type = payload.type;
+      const newState = state;
+      newState.type = payload.type;
       if(payload.props) {
-        state.props = payload.props;
+        newState.props = payload.props;
       } else {
-        delete state.props;
+        delete newState.props;
       }
     },
     closePopup(state) {
-      state.type = null;
-      delete state.props;
+      const newState = state;
+      newState.type = null;
+      delete newState.props;
     },
   },
 });

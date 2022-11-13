@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as RollbarProvider, ErrorBoundary, LEVEL_WARN } from '@rollbar/react';
 
-import init, { i18n } from "init";
+import init, { i18n } from 'init';
 import store from 'store/store';
 
 import App from 'App';
 import ErrorDisplay from 'components/ErrorDisplay';
-import { rollbarConfig } from 'configs';
+import rollbarConfig from 'configs';
 import 'assets/styles/index.scss';
 
 init();

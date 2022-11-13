@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import React from 'react';
+import filter from 'leo-profanity';
 import { initReactI18next } from 'react-i18next';
 import { io } from 'socket.io-client';
 import store from 'store/store';
@@ -13,8 +13,8 @@ export const i18n = i18next;
 
 function init() {
   socket.on('newMessage', ({
-                             body, channelId, id, username,
-                           }) => {
+    body, channelId, id, username,
+  }) => {
     store.dispatch(addMessage({
       body, channelId, id, username,
     }));
@@ -28,6 +28,9 @@ function init() {
   socket.on('renameChannel', ({ id, name }) => {
     store.dispatch(renameChannel({ id, name }));
   });
+
+  filter.loadDictionary();
+  filter.add(filter.getDictionary('ru', 'en'));
 
   i18n
     .use(initReactI18next)

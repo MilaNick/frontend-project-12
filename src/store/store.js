@@ -10,10 +10,8 @@ export default configureStore({
     messagesReducer,
     popupReducer,
   },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware({
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       serializableCheck: false
-    })
-  },
+    }),
   devTools: process.env.NODE_ENV !== 'production',
 });

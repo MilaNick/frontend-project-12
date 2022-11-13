@@ -1,11 +1,10 @@
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
 
-import RemoveChannelPopup from 'components/RemoveChannelPopup';
-import RenameChannelPopup from 'components/RenameChannelPopup';
+import { openPopup } from 'slices/activePopupSlice'
 import Button from 'ui/Button';
 import DropdownMenu from 'ui/DropdownMenu';
 import Icon from 'ui/Icon';
@@ -15,9 +14,7 @@ import './index.scss';
 function Channel({
   id, name, isActive, removable,
 }) {
-  const channels = useSelector((state) => state.channelsReducer.channels);
-  const [shownRemovePopup, setShownRemovePopup] = useState(false);
-  const [shownRenamePopup, setShownRenamePopup] = useState(false);
+  const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const classes = cn({
@@ -26,10 +23,10 @@ function Channel({
   });
 
   const deleteChannel = () => {
-    setShownRemovePopup(true);
+    dispatch(openPopup({type: 'remove-channel', props: {id} }))
   };
   const renameChannel = () => {
-    setShownRenamePopup(true);
+    dispatch(openPopup({type: 'rename-channel', props: {id} }))
   };
   return (
     <li className={classes}>
@@ -53,16 +50,7 @@ function Channel({
             <Icon icon="ArrowDown" />
             <span className="hidden">{t('Channel management')}</span>
           </Button>
-
         </DropdownMenu>
-      )}
-      {shownRemovePopup && <RemoveChannelPopup id={id} close={() => setShownRemovePopup(false)} />}
-      {shownRenamePopup && (
-      <RenameChannelPopup
-        channels={channels}
-        id={id}
-        close={() => setShownRenamePopup(false)}
-      />
       )}
     </li>
   );

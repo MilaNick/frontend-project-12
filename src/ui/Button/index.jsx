@@ -28,8 +28,8 @@ function Button(
     [`btn--top-${top}`]: Boolean(top),
     'btn--left': left,
     'btn--fluid': fluid,
-    'btn--absolute': absolute,
     'btn--light': light,
+    'btn--absolute': absolute,
     'btn--relative': relative,
   });
   if (href) {

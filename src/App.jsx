@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React, { createContext, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -12,6 +11,7 @@ import SignUp from 'screens/SignUp';
 import Layout from 'ui/Layout';
 
 import './App.scss';
+import ActivePopup from "./components/ActivePopup";
 
 const screens = [
   { path: '/', component: Main, accessLevel: 'auth' },
@@ -58,6 +58,7 @@ function App() {
           ))}
         </Route>
       </Routes>
+      <ActivePopup/>
     </AuthContext.Provider>
   );
 }

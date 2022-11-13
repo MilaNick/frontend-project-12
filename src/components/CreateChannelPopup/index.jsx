@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import {useDispatch, useSelector} from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { socket } from 'init';
 
 import Report from 'components/Report';
+import { closePopup } from 'slices/activePopupSlice';
 import { check } from 'utils/profanity';
 import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
 
-function CreateChannelPopup({ channels, setShown, onAddChannel }) {
+
+function CreateChannelPopup({ onAddChannel }) {
+  const channels = useSelector((state) => state.channelsReducer.channels);
+  const dispatch = useDispatch();
   const [newChannel, setNewChannel] = useState('');
   const [error, setError] = useState('');
   const { t } = useTranslation();
@@ -47,23 +52,19 @@ function CreateChannelPopup({ channels, setShown, onAddChannel }) {
       });
       onAddChannel(newChannel);
       setNewChannel('');
-      setShown(false);
+      dispatch(closePopup());
     } else {
       setError(t('Enter the channel name'));
       notifyError(e, t('Enter the channel name'));
     }
   };
-  const closePopup = () => {
-    setNewChannel('');
-    setError('');
-    setShown(false);
-  };
+
   const handleChange = (e) => {
     setNewChannel(e.target.value);
     setError('');
   };
   return (
-    <Popup close={closePopup} title={t('Add channel')}>
+    <Popup close={() => dispatch(closePopup())} title={t('Add channel')}>
       <Form onSubmit={addChannel}>
         <Input
           autoFocus
@@ -74,7 +75,7 @@ function CreateChannelPopup({ channels, setShown, onAddChannel }) {
         />
         {error && <Report type="error">{error}</Report>}
         <div className="wrapper">
-          <Button size="lg" top="lg" left onClick={closePopup}>{t('cansel')}</Button>
+          <Button size="lg" top="lg" left onClick={() => dispatch(closePopup())}>{t('cansel')}</Button>
           <Button type="submit" size="lg" top="lg" left>{t('send')}</Button>
         </div>
       </Form>

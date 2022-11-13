@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Channel from 'components/Channel';
-import CreateChannelPopup from 'components/CreateChannelPopup';
+import { openPopup } from 'slices/activePopupSlice';
 import Button from 'ui/Button';
 import Icon from 'ui/Icon';
 
 import './index.scss';
 
 function Channels({ activeChannelId }) {
+  const dispatch = useDispatch();
   const channels = useSelector((state) => state.channelsReducer.channels);
-  const [shown, setShown] = useState(false);
   const [justCreatedChannelName, setJustCreatedChannelName] = useState(null);
   const navigate = useNavigate();
 
@@ -30,17 +30,10 @@ function Channels({ activeChannelId }) {
     <div className="main-channels">
       <div className="main-channels__wrap">
         <h3 className="main-channels__title">Каналы</h3>
-        <Button size="sm" onClick={() => setShown(true)}>
+        <Button size="sm" onClick={() => dispatch(openPopup({type:'add-channel', props: { onAddChannel: setJustCreatedChannelName }}))}>
           <Icon icon="Plus" />
           <span className="hidden">+</span>
         </Button>
-        {shown && (
-        <CreateChannelPopup
-          onAddChannel={setJustCreatedChannelName}
-          channels={channels}
-          setShown={setShown}
-        />
-        )}
       </div>
       <ul className="main-channels__names">
         {channels.map((channel) => (

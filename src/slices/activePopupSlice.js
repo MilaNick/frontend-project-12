@@ -9,7 +9,7 @@ const activePopupSlice = createSlice({
     openPopup(state, { payload }) {
       const newState = state;
       newState.type = payload.type;
-      if(payload.props) {
+      if (payload.props) {
         newState.props = payload.props;
       } else {
         delete newState.props;

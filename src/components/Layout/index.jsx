@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import { Link, Outlet } from 'react-router-dom';
 
-import { AuthContext } from "App";
-import Button from "ui/Button";
+import { AuthContext } from 'App';
+import Button from 'ui/Button';
 
 import './index.scss';
 

@@ -11,7 +11,7 @@ export default configureStore({
     popupReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      serializableCheck: false
-    }),
+    serializableCheck: false,
+  }),
   devTools: process.env.NODE_ENV !== 'production',
 });

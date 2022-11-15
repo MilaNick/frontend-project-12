@@ -11,6 +11,8 @@ import store from 'store/store';
 import App from 'App';
 import ErrorDisplay from 'components/ErrorDisplay';
 import rollbarConfig from 'configs';
+
+import 'react-toastify/dist/ReactToastify.css';
 import 'assets/styles/index.scss';
 
 init();

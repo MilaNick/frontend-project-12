@@ -13,7 +13,7 @@ function ActivePopup() {
     case 'remove-channel':
       return <RemoveChannelPopup id={popup.props.id} />;
     case 'add-channel':
-      return <CreateChannelPopup onAddChannel={popup.props.onAddChannel} />;
+      return <CreateChannelPopup />;
     default:
       return null;
   }

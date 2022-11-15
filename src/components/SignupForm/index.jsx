@@ -15,7 +15,7 @@ const SignupForm = () => {
     {
       name: 'name',
       placeholder: t('Username registration'),
-      initialValue: '',
+      initialvalue: '',
       schema: Yup
         .string()
         .min(3, t('Minimum and maximum number of characters'))

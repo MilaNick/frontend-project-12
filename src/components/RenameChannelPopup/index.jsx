@@ -1,9 +1,9 @@
+import { useFormik } from 'formik';
 import filter from 'leo-profanity';
-import React, { useState } from 'react';
+import React, {useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { socket } from 'init';
 import { closePopup } from 'slices/activePopupSlice';
@@ -12,65 +12,53 @@ import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
+import * as Yup from "yup";
 
 function RenameChannelPopup({ id }) {
-  const channels = useSelector((state) => state.channelsReducer.channels);
-  const [newNameChannel, setNewNameChannel] = useState('');
-  const [error, setError] = useState('');
+  const channelsNames = useSelector((state) => state
+    .channelsReducer.channels.map(channel => channel.name));
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const notify = (e) => {
-    e.preventDefault();
-    toast.info(t('Channel renamed'), {
-      icon: '💫',
-    });
-  };
-  const notifyError = (e, text) => {
-    e.preventDefault();
-    toast.error(text, {
-      icon: '👽',
-    });
-  };
-  const renameChannel = (e) => {
-    e.preventDefault();
-    if (channels.find((channel) => channel.name.toLowerCase() === newNameChannel.toLowerCase())) {
-      setError(t('Not unique name'));
-      notifyError(e, t('Not unique name'));
-      return;
-    }
-    if (filter.check(newNameChannel)) {
-      setError(t('The channel name cannot contain profanity'));
-      notifyError(e, t('The channel name cannot contain profanity'));
-      return;
-    }
-    setError('');
-    if (newNameChannel) {
-      socket.emit('renameChannel', { id, name: newNameChannel }, () => {
-        notify(e);
+  const validationSchema = Yup.object({
+    name: Yup
+      .string()
+      .required(t('required'))
+      .lowercase()
+      .notOneOf(channelsNames.map(channelName => channelName.toLowerCase()), t('Not unique name'))
+      .test('cannot contain profanity', t('The channel name cannot contain profanity'), (value) => !filter.check(value))
+  });
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      socket.emit('renameChannel', { id, name: values.name }, () => {
+        toast.info(t('Channel renamed'), {
+          icon: '💫',
+        });
         dispatch(closePopup());
       });
-      setNewNameChannel('');
-    } else {
-      setError(t('Enter the channel name'));
-      notifyError(e, t('Enter the channel name'));
     }
-  };
-  const handleChange = (e) => {
-    setNewNameChannel(e.target.value);
-    setError('');
-  };
-
+  })
+  useEffect(() => {
+    if (formik.errors.name) {
+      toast.error(formik.errors.name, {
+        icon: '👽',
+      });
+    }
+  }, [formik.errors.name])
   return (
     <Popup close={() => dispatch(closePopup())} title={t('Rename channel')}>
-      <Form onSubmit={renameChannel}>
+      <Form onSubmit={formik.handleSubmit}>
         <Input
           autoFocus
-          name="renameChannel"
+          name="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
           placeholder={t('Enter the channel name')}
-          value={newNameChannel}
-          onChange={handleChange}
         />
-        {error && <Report type="error">{error}</Report>}
+        {formik.errors.name && <Report type="error">{formik.errors.name}</Report>}
         <div className="wrapper">
           <Button size="lg" top="lg" left onClick={() => dispatch(closePopup())}>{t('cansel')}</Button>
           <Button type="submit" size="lg" top="lg" left>{t('rename')}</Button>

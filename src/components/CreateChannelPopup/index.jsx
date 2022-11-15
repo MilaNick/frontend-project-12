@@ -17,7 +17,7 @@ import Popup from 'ui/Popup';
 
 function CreateChannelPopup() {
   const channelsNames = useSelector((state) => state
-    .channelsReducer.channels.map(channel => channel.name));
+    .channelsReducer.channels.map((channel) => channel.name));
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const validationSchema = Yup.object({
@@ -25,8 +25,8 @@ function CreateChannelPopup() {
       .string()
       .required(t('required'))
       .lowercase()
-      .notOneOf(channelsNames.map(channelName => channelName.toLowerCase()), t('Not unique name'))
-      .test('cannot contain profanity', t('The channel name cannot contain profanity'), (value) => !filter.check(value))
+      .notOneOf(channelsNames.map((channelName) => channelName.toLowerCase()), t('Not unique name'))
+      .test('cannot contain profanity', t('The channel name cannot contain profanity'), (value) => !filter.check(value)),
   });
   const formik = useFormik({
     initialValues: {
@@ -40,15 +40,15 @@ function CreateChannelPopup() {
         });
         dispatch(closePopup());
       });
-    }
-  })
+    },
+  });
   useEffect(() => {
     if (formik.errors.name) {
       toast.error(formik.errors.name, {
         icon: '👽',
       });
     }
-  }, [formik.errors.name])
+  }, [formik.errors.name]);
 
   return (
     <Popup close={() => dispatch(closePopup())} title={t('Add channel')}>

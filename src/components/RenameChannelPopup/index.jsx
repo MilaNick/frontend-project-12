@@ -1,9 +1,10 @@
 import { useFormik } from 'formik';
 import filter from 'leo-profanity';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import * as Yup from 'yup';
 
 import { socket } from 'init';
 import { closePopup } from 'slices/activePopupSlice';
@@ -12,11 +13,10 @@ import Button from 'ui/Button';
 import Form from 'ui/Form';
 import Input from 'ui/Input';
 import Popup from 'ui/Popup';
-import * as Yup from "yup";
 
 function RenameChannelPopup({ id }) {
   const channelsNames = useSelector((state) => state
-    .channelsReducer.channels.map(channel => channel.name));
+    .channelsReducer.channels.map((channel) => channel.name));
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const validationSchema = Yup.object({
@@ -24,8 +24,8 @@ function RenameChannelPopup({ id }) {
       .string()
       .required(t('required'))
       .lowercase()
-      .notOneOf(channelsNames.map(channelName => channelName.toLowerCase()), t('Not unique name'))
-      .test('cannot contain profanity', t('The channel name cannot contain profanity'), (value) => !filter.check(value))
+      .notOneOf(channelsNames.map((channelName) => channelName.toLowerCase()), t('Not unique name'))
+      .test('cannot contain profanity', t('The channel name cannot contain profanity'), (value) => !filter.check(value)),
   });
   const formik = useFormik({
     initialValues: {
@@ -39,15 +39,15 @@ function RenameChannelPopup({ id }) {
         });
         dispatch(closePopup());
       });
-    }
-  })
+    },
+  });
   useEffect(() => {
     if (formik.errors.name) {
       toast.error(formik.errors.name, {
         icon: '👽',
       });
     }
-  }, [formik.errors.name])
+  }, [formik.errors.name]);
   return (
     <Popup close={() => dispatch(closePopup())} title={t('Rename channel')}>
       <Form onSubmit={formik.handleSubmit}>

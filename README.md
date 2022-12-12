@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/MilaNick/frontend-project-12/workflows/hexlet-check/badge.svg)](https://github.com/MilaNick/frontend-project-12/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/380c1b7806a4bcad9861/maintainability)](https://codeclimate.com/github/MilaNick/frontend-project-12/maintainability)
 
-## 💬 Chat [here](https://milachat.herokuapp.com/)  
+## 💬 Chat
 
 ### Overview
 Chat is a simple real-time chat application.  
